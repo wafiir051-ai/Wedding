@@ -479,3 +479,7 @@ img { -webkit-user-drag: none; }
 .lite .cn .ch { filter: none !important; }
 .lite .ready .cn .ch { animation: letterIn 1s var(--ease) calc(.5s + var(--i) * 110ms) forwards; }
 .lite .cn-amp, .lite .arch-ring { animation: none; }
+
+/* Perangkat lama: buang efek mahal */
+.lite *, .lite *::before, .lite *::after { filter: none !important; box-shadow: none !important; text-shadow: none !important; will-change: auto !important; }
+.tier-mid * { will-change: auto !important; }

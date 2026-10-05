@@ -18,6 +18,7 @@
     if (c.saveData || /2g/.test(c.effectiveType || '')) return 'low';
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return 'low';
     if (mem && mem <= 2) return 'low';
+    if (cores && cores <= 4) return 'low';
     if ((mem && mem <= 4) || (cores && cores <= 4) || /3g/.test(c.effectiveType || '')) return 'mid';
     return 'high';
   }
