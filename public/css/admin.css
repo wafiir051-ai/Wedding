@@ -63,3 +63,15 @@ dialog form{display:grid;gap:.8rem}
   .table-wrap td:first-child, .table-wrap th:first-child { position: sticky; left: 0; background: #fff; box-shadow: 1px 0 0 var(--line); }
   .table-wrap th:first-child { background: #e8f3fb; }
 }
+
+/* Polish halaman admin */
+.top { background: linear-gradient(135deg, var(--md), var(--m)); box-shadow: 0 6px 20px rgba(10, 40, 80, .25); }
+.box { box-shadow: 0 24px 60px rgba(10, 40, 80, .35); }
+.stat, .add, .table-wrap { box-shadow: 0 4px 14px rgba(31, 58, 82, .07); }
+.stat { transition: transform .25s, box-shadow .25s; }
+@media (hover: hover) { .stat:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31, 58, 82, .13); } }
+.btn { transition: border-color .2s, color .2s, background .2s, transform .15s; }
+.btn:active { transform: scale(.97); }
+.tab { transition: color .2s, border-color .2s; }
+.tab:hover { color: var(--m); }
+input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(90, 169, 230, .3); }
