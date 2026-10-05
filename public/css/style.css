@@ -455,4 +455,3 @@ img { -webkit-user-drag: none; }
 .sec + .sec::before {
   background: linear-gradient(180deg, #f2faff 0%, #bfe3ff 55%, #7fbdf0 100%);
 }
-.sec + .sec::before { background: var(--gold-grad); }
