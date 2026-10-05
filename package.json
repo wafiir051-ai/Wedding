@@ -1,0 +1,11 @@
+{
+  "name": "wedding-agus-sinta",
+  "version": "1.0.0",
+  "description": "Undangan pernikahan Agus & Sinta — website statis + database Supabase",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "engines": { "node": ">=18" }
+}

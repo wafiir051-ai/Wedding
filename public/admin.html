@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin — Undangan Agus & Sinta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/site-config.js"></script>
+</head>
+<body>
+  <!-- Login -->
+  <main class="login" id="loginView">
+    <form class="box" id="loginForm">
+      <h1>Admin Undangan</h1>
+      <p>Agus &amp; Sinta</p>
+      <label>Email<input type="email" id="lEmail" autocomplete="username" required></label>
+      <label>Password<input type="password" id="lPass" autocomplete="current-password" required></label>
+      <p class="msg err" id="lMsg" hidden></p>
+      <button class="btn primary" type="submit">Masuk</button>
+    </form>
+  </main>
+
+  <!-- Dashboard -->
+  <div id="appView" hidden>
+    <header class="top">
+      <strong>Admin · Agus &amp; Sinta</strong>
+      <span class="grow"></span>
+      <span class="who" id="who"></span>
+      <button class="btn" id="pwBtn" title="Ganti password"><i class="fas fa-key"></i></button>
+      <button class="btn" id="logoutBtn"><i class="fas fa-right-from-bracket"></i> Keluar</button>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="rsvp">Konfirmasi &amp; Ucapan</button>
+      <button class="tab" data-tab="guests">Daftar Tamu &amp; Link</button>
+    </nav>
+
+    <section class="panel" id="tab-rsvp">
+      <div class="bar">
+        <input type="search" id="q" placeholder="Cari nama / ucapan…">
+        <select id="statusFilter"><option value="">Semua</option><option value="hadir">Hadir</option><option value="ragu">Ragu</option><option value="tidak">Tidak hadir</option></select>
+        <button class="btn" id="reload"><i class="fas fa-rotate"></i></button>
+        <button class="btn primary" id="csv"><i class="fas fa-file-csv"></i> Ekspor CSV</button>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Nama</th><th>Status</th><th>Tamu</th><th>Ucapan</th><th>Waktu</th><th></th></tr></thead>
+        <tbody id="rsvpBody"></tbody>
+      </table></div>
+      <p class="empty" id="rsvpEmpty" hidden>Belum ada data.</p>
+    </section>
+
+    <section class="panel" id="tab-guests" hidden>
+      <div class="add">
+        <h2>Tambah tamu</h2>
+        <p class="hint">Satu nama per baris. Tiap tamu mendapat link personal; nama tampil di cover dan status RSVP-nya tercatat.</p>
+        <textarea id="gNames" rows="4" placeholder="Keluarga Besar Sinta Juliani&#10;Budi Santoso&#10;Teman Kantor"></textarea>
+        <div class="bar"><input id="gLabel" placeholder="Label/grup (opsional)" maxlength="40"><button class="btn primary" id="gAdd"><i class="fas fa-plus"></i> Tambah</button></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Nama</th><th>Grup</th><th>RSVP</th><th>Link / Pesan</th><th></th></tr></thead>
+        <tbody id="guestBody"></tbody>
+      </table></div>
+      <p class="empty" id="guestEmpty" hidden>Belum ada tamu.</p>
+    </section>
+  </div>
+
+  <dialog id="pwDialog"><form method="dialog" id="pwForm">
+    <h3>Ganti password</h3>
+    <label>Password baru (min. 8 karakter)<input type="password" id="pwNew" minlength="8" autocomplete="new-password" required></label>
+    <p class="msg" id="pwMsg" hidden></p>
+    <div class="bar"><button class="btn" value="cancel" formnovalidate>Batal</button><button class="btn primary" id="pwSave" value="ok">Simpan</button></div>
+  </form></dialog>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="js/sb.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

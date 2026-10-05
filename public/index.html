@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Wedding of Agus &amp; Sinta</title>
+  <meta name="description" content="Undangan pernikahan Agus &amp; Sinta — Kamis, 19 November 2026, Sumedang Selatan.">
+  <meta name="theme-color" content="#1c5a94">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Wedding of Agus &amp; Sinta">
+  <meta property="og:description" content="Kami mengundang Anda di hari bahagia kami — Kamis, 19 November 2026.">
+  <meta property="og:image" content="img/couple-room.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@400;700&family=Dancing+Script:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="img/couple-room.jpg">
+  <script src="js/site-config.js"></script>
+</head>
+<body class="locked">
+
+  <!-- Latar animasi global -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-glitter" id="glitter"></div>
+    <div class="ambient-floral" id="floral"></div>
+  </div>
+
+  <!-- Loading -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-box">
+      <div class="loader-logo">Agus &amp; Sinta</div>
+      <div class="loader-spinner"></div>
+      <p>Memuat Undangan Pernikahan…</p>
+    </div>
+  </div>
+
+  <!-- Tombol melayang -->
+  <button class="fab fab-music" id="musicBtn" aria-label="Putar / jeda musik" title="Musik" hidden><i class="fas fa-music"></i></button>
+  <button class="fab fab-scroll" id="scrollBtn" aria-label="Gulir otomatis" title="Gulir otomatis" hidden><i class="fas fa-angles-down"></i></button>
+
+  <!-- COVER -->
+  <header class="cover" id="cover">
+    <div class="cover-bg"></div>
+    <div class="cover-shade"></div>
+    <div class="fx" data-fx="stars"></div>
+    <div class="cover-inner">
+      <p class="cover-intro" data-intro>The Wedding Of</p>
+      <div class="arch" data-intro>
+        <img src="img/couple-white.jpg" alt="Foto Agus dan Sinta" fetchpriority="high">
+        <span class="arch-ring"></span>
+      </div>
+      <h1 class="cover-names" aria-label="Agus dan Sinta">
+        <span class="cn cn-a" data-letters>Agus</span>
+        <span class="cn-amp" data-intro>&amp;</span>
+        <span class="cn cn-b" data-letters>Sinta</span>
+      </h1>
+      <p class="cover-date" data-intro id="coverDate"></p>
+      <div class="cover-guest" data-intro>
+        <span>Kepada Yth.</span>
+        <strong id="guestName">Bapak/Ibu/Saudara/i</strong>
+        <small>Mohon maaf apabila ada kesalahan penulisan nama dan gelar</small>
+      </div>
+      <button class="btn-open" id="openBtn" data-intro><i class="fas fa-envelope-open-text"></i> Buka Undangan</button>
+    </div>
+  </header>
+
+  <!-- ISI UNDANGAN -->
+  <main id="main" class="main" hidden>
+
+    <!-- Pembuka -->
+    <section class="sec sec-prolog" id="prologSection">
+      <div class="fx" data-fx="rings stars"></div>
+      <div class="wrap narrow center">
+        <p class="salam" data-reveal="blur">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+        <p class="lead" data-words>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri hari bahagia kami.</p>
+        <h2 class="script-names" data-reveal="zoom"><span id="pName1">Agus</span> <i>&amp;</i> <span id="pName2">Sinta</span></h2>
+        <div class="ornament" data-reveal="zoom"><span></span><i class="fas fa-heart"></i><span></span></div>
+        <p class="body-text" data-words>Dengan segala kerendahan hati, kami mengundang Anda untuk merayakan hari di mana dua hati menjadi satu dalam ikatan suci pernikahan. Ini adalah awal dari “selamanya” kami, dan merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir untuk memberikan doa restu.</p>
+      </div>
+    </section>
+
+    <!-- Mempelai -->
+    <section class="sec sec-couple" id="coupleSection">
+      <div class="fx" data-fx="orbs"></div>
+      <div class="wrap">
+        <h2 class="sec-title" data-split>Mempelai</h2>
+        <p class="sec-sub" data-reveal="up">The Bride &amp; Groom</p>
+        <div class="couple-grid" id="coupleGrid"></div>
+      </div>
+    </section>
+
+    <!-- Ayat -->
+    <section class="sec sec-quran" id="quranSection">
+      <div class="fx" data-fx="stars rays"></div>
+      <div class="wrap narrow center">
+        <h2 class="sec-title" data-split>Ayat Suci Al-Qur’an</h2>
+        <p class="quran-ar" lang="ar" dir="rtl" data-words>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+        <blockquote class="quran-id" data-reveal="up">
+          “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu merasa tenang dan tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”
+          <cite>QS. Ar-Rum: 21</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Hitung mundur -->
+    <section class="sec sec-count" id="countdownSection">
+      <div class="fx" data-fx="rays orbs"></div>
+      <div class="wrap narrow center">
+        <h2 class="sec-title" data-split>Menuju Hari Bahagia</h2>
+        <div class="count-grid" id="countGrid">
+          <div class="count-item" data-reveal="zoom"><b id="cdD">00</b><span>Hari</span></div>
+          <div class="count-item" data-reveal="zoom" data-delay="120"><b id="cdH">00</b><span>Jam</span></div>
+          <div class="count-item" data-reveal="zoom" data-delay="240"><b id="cdM">00</b><span>Menit</span></div>
+          <div class="count-item" data-reveal="zoom" data-delay="360"><b id="cdS">00</b><span>Detik</span></div>
+        </div>
+        <p class="count-note" id="countNote" data-reveal="up"></p>
+      </div>
+    </section>
+
+    <!-- Acara -->
+    <section class="sec sec-event" id="eventSection">
+      <div class="fx" data-fx="sweep orbs"></div>
+      <div class="wrap narrow center">
+        <h2 class="sec-title" data-split>Acara Pernikahan</h2>
+        <p class="sec-sub" data-reveal="up">Save The Date</p>
+        <article class="card event-card" data-reveal="up">
+          <div class="event-icon"><i class="fas fa-ring"></i></div>
+          <h3 id="evTitle">Pernikahan</h3>
+          <ul class="event-list">
+            <li><i class="fas fa-calendar-days"></i><span id="evDate"></span></li>
+            <li><i class="fas fa-clock"></i><span id="evTime"></span></li>
+            <li><i class="fas fa-location-dot"></i><span id="evPlace"></span></li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-gold" id="evMap" target="_blank" rel="noopener"><i class="fas fa-map-location-dot"></i> Buka Google Maps</a>
+            <button class="btn btn-ghost" id="evCal" type="button"><i class="fas fa-calendar-plus"></i> Simpan ke Kalender</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Peta -->
+    <section class="sec sec-map" id="mapSection">
+      <div class="fx" data-fx="sweep"></div>
+      <div class="wrap">
+        <h2 class="sec-title" data-split>Lokasi Acara</h2>
+        <div class="map-frame" data-reveal="up">
+          <iframe id="mapFrame" title="Peta lokasi acara" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hadiah (otomatis tersembunyi bila kosong) -->
+    <section class="sec sec-gift" id="giftSection" hidden>
+      <div class="fx" data-fx="orbs"></div>
+      <div class="wrap">
+        <h2 class="sec-title" data-split>Kirim Hadiah</h2>
+        <p class="sec-sub" data-reveal="up">Wedding Gift</p>
+        <div class="gift-grid" id="giftGrid"></div>
+        <p class="gift-address" id="giftAddress" data-reveal="up" hidden></p>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section class="sec sec-gallery" id="gallerySection">
+      <div class="wrap">
+        <h2 class="sec-title" data-split>Galeri Kami</h2>
+        <p class="sec-sub" data-reveal="up">Our Moments</p>
+      </div>
+      <div class="slider" id="slider" data-reveal="zoom">
+        <div class="slides" id="slides"></div>
+        <button class="slider-btn prev" id="prevBtn" aria-label="Foto sebelumnya"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextBtn" aria-label="Foto berikutnya"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-count" id="sliderCount">1 / 5</div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="sec sec-rsvp" id="rsvpSection">
+      <div class="fx" data-fx="petals"></div>
+      <div class="wrap narrow">
+        <h2 class="sec-title" data-split>Konfirmasi Kehadiran</h2>
+        <p class="sec-sub" data-reveal="up">RSVP &amp; Ucapan</p>
+        <form class="card form-card" id="rsvpForm" data-reveal="up" novalidate>
+          <div class="field">
+            <label for="fName">Nama</label>
+            <input id="fName" name="name" type="text" maxlength="60" autocomplete="name" placeholder="Tulis nama Anda" required>
+          </div>
+          <fieldset class="field">
+            <legend>Apakah Anda akan hadir?</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="attendance" value="hadir" checked><span><i class="fas fa-circle-check"></i> Hadir</span></label>
+              <label class="choice"><input type="radio" name="attendance" value="ragu"><span><i class="fas fa-circle-question"></i> Masih Ragu</span></label>
+              <label class="choice"><input type="radio" name="attendance" value="tidak"><span><i class="fas fa-circle-xmark"></i> Tidak Hadir</span></label>
+            </div>
+          </fieldset>
+          <div class="field" id="paxField">
+            <label for="fPax">Jumlah tamu yang hadir</label>
+            <select id="fPax" name="pax"></select>
+          </div>
+          <div class="field">
+            <label for="fMsg">Ucapan &amp; Doa <small>(opsional)</small></label>
+            <textarea id="fMsg" name="message" maxlength="500" rows="4" placeholder="Tuliskan ucapan dan doa untuk kedua mempelai…"></textarea>
+            <small class="counter"><span id="msgLen">0</span>/500</small>
+          </div>
+          <p class="form-note" id="formNote" hidden></p>
+          <button class="btn btn-gold btn-block" type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span>Kirim</span></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Buku tamu -->
+    <section class="sec sec-guestbook" id="guestbookSection">
+      <div class="fx" data-fx="stars"></div>
+      <div class="wrap narrow">
+        <h2 class="sec-title" data-split>Ucapan &amp; Doa</h2>
+        <p class="sec-sub" data-reveal="up">Guestbook</p>
+        <div class="gb-list" id="gbList" aria-live="polite"></div>
+        <div class="center"><button class="btn btn-ghost" id="gbMore" type="button" hidden>Muat lebih banyak</button></div>
+      </div>
+    </section>
+
+    <!-- Penutup -->
+    <section class="sec sec-closing" id="closingSection">
+      <div class="fx" data-fx="petals rings"></div>
+      <div class="wrap narrow center">
+        <p class="body-text" data-words>Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu. Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
+        <p class="salam" data-reveal="blur">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+        <h2 class="script-names big" data-reveal="zoom">Agus <i>&amp;</i> Sinta</h2>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-addr" id="footAddr"></p>
+      <a class="admin-link" href="admin.html"><i class="fas fa-user-shield"></i> Admin</a>
+      <p class="footer-copy">© 2026 Undangan Pernikahan Agus &amp; Sinta</p>
+    </footer>
+  </main>
+
+  <!-- Navigasi bawah -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Navigasi" hidden>
+    <button data-go="prologSection" class="active"><i class="fas fa-house"></i><span>Home</span></button>
+    <button data-go="coupleSection"><i class="fas fa-heart"></i><span>Mempelai</span></button>
+    <button data-go="eventSection"><i class="fas fa-calendar-days"></i><span>Acara</span></button>
+    <button data-go="gallerySection"><i class="fas fa-images"></i><span>Galeri</span></button>
+    <button data-go="giftSection" id="navGift" hidden><i class="fas fa-gift"></i><span>Hadiah</span></button>
+    <button data-go="rsvpSection"><i class="fas fa-envelope-open-text"></i><span>RSVP</span></button>
+  </nav>
+
+  <audio id="bgm" loop preload="none"></audio>
+  <script src="js/sb.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
