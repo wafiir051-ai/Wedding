@@ -121,10 +121,16 @@
       <li>Unduh CSV secara berkala sebagai cadangan, terutama menjelang hari H.</li>
     </ul>
 
-    <form method="dialog"><button class="btn primary">Mengerti</button></form>
+    <div class="ack">
+      <p class="ack-note" id="ackNote">Gulir sampai bawah untuk melanjutkan.</p>
+      <label class="ack-row"><input type="checkbox" id="ackCheck" disabled> Saya sudah membaca dan mengerti panduan ini</label>
+      <button type="button" class="btn primary" id="ackBtn" disabled>Masuk ke halaman admin</button>
+    </div>
+    <button type="button" class="btn primary" id="helpClose">Tutup</button>
   </dialog>
 
   <script src="js/sb.js"></script>
   <script src="js/admin.js"></script>
+  <script src="js/guide.js"></script>
 </body>
 </html>
