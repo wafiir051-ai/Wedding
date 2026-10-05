@@ -424,7 +424,7 @@ img { -webkit-user-drag: none; }
 }
 @keyframes melt { from { transform: scaleY(.82); } to { transform: scaleY(1.08); } }
 @media (prefers-reduced-motion: reduce) { .sec + .sec::before { animation: none; } }
-.sec + .sec { padding-top: calc(var(--sec-pt, 0px) + 28px); }
+.sec + .sec { padding-top: calc(clamp(4.5rem, 11vw, 7.5rem) + 28px); }
 
 /* Warna tetesan per batas, mengikuti section di atasnya */
 .sec-prolog + .sec { --drip: #266faf; }
