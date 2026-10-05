@@ -1,7 +1,7 @@
 (function () {
   var d = document.documentElement, n = navigator, c = n.connection || {};
   var ORDER = ['high', 'mid', 'low'];
-  var KEY = 'wq', TTL = 7 * 864e5;
+  var KEY = 'wq', TTL = 2 * 864e5;
 
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -17,8 +17,7 @@
     var mem = n.deviceMemory, cores = n.hardwareConcurrency;
     if (c.saveData || /2g/.test(c.effectiveType || '')) return 'low';
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return 'low';
-    if (mem && mem <= 2) return 'low';
-    if (cores && cores <= 4) return 'low';
+    if ((mem && mem <= 2) || (cores && cores <= 2)) return 'low';
     if ((mem && mem <= 4) || (cores && cores <= 4) || /3g/.test(c.effectiveType || '')) return 'mid';
     return 'high';
   }
@@ -68,11 +67,27 @@
     else if (fps < 45) down('mid');
   }
 
-  window.addEventListener('load', function () {
+  function schedule(delay) {
+    setTimeout(function run() {
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function once() {
+          if (!document.hidden) {
+            document.removeEventListener('visibilitychange', once);
+            setTimeout(run, 500);
+          }
+        });
+        return;
+      }
+      probe(1200, judge);
+    }, delay);
+  }
+
+  function start() {
     if (forced || tier === 'low') return;
-    setTimeout(function () { probe(1500, judge); }, 900);
-    setTimeout(function () { probe(1500, judge); }, 7000);
-  });
+    schedule(600); schedule(4000); schedule(10000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 
   document.addEventListener('visibilitychange', function () {
     d.classList.toggle('paused', document.hidden);
