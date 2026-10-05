@@ -483,3 +483,11 @@ img { -webkit-user-drag: none; }
 /* Perangkat lama: buang efek mahal */
 .lite *, .lite *::before, .lite *::after { filter: none !important; box-shadow: none !important; text-shadow: none !important; will-change: auto !important; }
 .tier-mid * { will-change: auto !important; }
+
+.tier-mid .cover-bg { filter: blur(5px); animation: none; }
+.tier-mid .ambient-glitter i { box-shadow: none; }
+.tier-mid .ambient-glitter i:nth-child(n+7), .tier-mid .ambient-floral span:nth-child(n+5) { display: none; }
+.tier-mid .ambient-floral span { text-shadow: none; }
+
+.lite .cover-bg { filter: none; animation: none; }
+.lite .ambient { display: none !important; }
