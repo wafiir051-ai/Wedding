@@ -244,12 +244,17 @@
 
   /* ---------- Musik & auto scroll ---------- */
   const bgm = $('#bgm'); let wantPlay = false;
+  function pickMusic() {
+    const t = document.documentElement.dataset.tier;
+    const src = S.music.src.replace(/\.mp3$/, t === 'low' ? '-low.mp3' : t === 'mid' ? '-mid.mp3' : '.mp3');
+    if (bgm.paused && bgm.getAttribute('src') !== src) bgm.src = src;
+  }
   function music() {
-    bgm.src = S.music.src; bgm.volume = 0.7;
+    pickMusic(); bgm.volume = 0.7;
     const btn = $('#musicBtn');
     const sync = () => btn.classList.toggle('on', !bgm.paused);
     bgm.addEventListener('play', sync); bgm.addEventListener('pause', sync);
-    btn.addEventListener('click', () => { if (bgm.paused) { wantPlay = true; bgm.play().catch(() => {}); } else { wantPlay = false; bgm.pause(); } });
+    btn.addEventListener('click', () => { if (bgm.paused) { wantPlay = true; pickMusic(); bgm.play().catch(() => {}); } else { wantPlay = false; bgm.pause(); } });
     document.addEventListener('visibilitychange', () => { if (document.hidden) bgm.pause(); else if (wantPlay) bgm.play().catch(() => {}); });
   }
 
@@ -286,7 +291,7 @@
     scrollTo(0, 0);
     cover.classList.add('open');
     setTimeout(() => { cover.hidden = true; }, 1200);
-    wantPlay = true; bgm.play().catch(() => { wantPlay = false; });
+    wantPlay = true; pickMusic(); bgm.play().catch(() => { wantPlay = false; });
     setupObservers();
     if (!reduce) setTimeout(() => { if (scrollY < 80) autoScroll(true); }, 3500);
   }
