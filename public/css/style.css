@@ -458,3 +458,16 @@ img { -webkit-user-drag: none; }
 
 /* Kunci mode terang */
 :root { color-scheme: light; }
+
+/* Tingkat menengah: tetap cantik, lebih ringan */
+.tier-mid .fx .rays, .tier-mid .fx .sweep { display: none !important; }
+.tier-mid .fx .orb { filter: blur(22px); }
+.tier-mid .fx .star:nth-child(n+9), .tier-mid .fx .petal:nth-child(n+7) { display: none; }
+.tier-mid .fx .star { box-shadow: none; }
+.tier-mid *, .tier-mid *::before, .tier-mid *::after { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.tier-mid .cover-date { background: rgba(255, 255, 255, .18); }
+.tier-mid .cn .ch { filter: none; }
+.tier-mid .ready .cn .ch { animation: letterIn 1s var(--ease) calc(.5s + var(--i) * 110ms) forwards; }
+
+/* Tab disembunyikan: hentikan semua animasi */
+.paused *, .paused *::before, .paused *::after { animation-play-state: paused !important; }
