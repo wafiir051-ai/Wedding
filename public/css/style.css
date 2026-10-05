@@ -442,11 +442,17 @@ img { -webkit-user-drag: none; }
 
 /* Tetesan es krim v2: lebih besar, ujung membulat, panjang bervariasi */
 .sec + .sec::before {
-  height: 56px;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 56'%3E%3Cpath d='M0 0H300V10H282Q270 10 270 22V32A8 8 0 0 1 254 32V22Q254 10 242 10H228Q216 10 216 22V43A11 11 0 0 1 194 43V22Q194 10 182 10H168Q156 10 156 20V24A6 6 0 0 1 144 24V20Q144 10 132 10H119Q107 10 107 22V37A9 9 0 0 1 89 37V22Q89 10 77 10H59Q47 10 47 20V27A7 7 0 0 1 33 27V20Q33 10 21 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 300px 56px;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 56'%3E%3Cpath d='M0 0H300V10H282Q270 10 270 22V32A8 8 0 0 1 254 32V22Q254 10 242 10H228Q216 10 216 22V43A11 11 0 0 1 194 43V22Q194 10 182 10H168Q156 10 156 20V24A6 6 0 0 1 144 24V20Q144 10 132 10H119Q107 10 107 22V37A9 9 0 0 1 89 37V22Q89 10 77 10H59Q47 10 47 20V27A7 7 0 0 1 33 27V20Q33 10 21 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 300px 56px;
+  height: 70px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 56'%3E%3Cpath d='M0 0H300V10H282Q270 10 270 22V32A8 8 0 0 1 254 32V22Q254 10 242 10H228Q216 10 216 22V43A11 11 0 0 1 194 43V22Q194 10 182 10H168Q156 10 156 20V24A6 6 0 0 1 144 24V20Q144 10 132 10H119Q107 10 107 22V37A9 9 0 0 1 89 37V22Q89 10 77 10H59Q47 10 47 20V27A7 7 0 0 1 33 27V20Q33 10 21 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 375px 70px;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 56'%3E%3Cpath d='M0 0H300V10H282Q270 10 270 22V32A8 8 0 0 1 254 32V22Q254 10 242 10H228Q216 10 216 22V43A11 11 0 0 1 194 43V22Q194 10 182 10H168Q156 10 156 20V24A6 6 0 0 1 144 24V20Q144 10 132 10H119Q107 10 107 22V37A9 9 0 0 1 89 37V22Q89 10 77 10H59Q47 10 47 20V27A7 7 0 0 1 33 27V20Q33 10 21 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 375px 70px;
   transform-origin: top;
   animation: melt2 6s ease-in-out infinite alternate;
 }
 @keyframes melt2 { from { transform: scaleY(.93); } to { transform: scaleY(1.05); } }
 @media (prefers-reduced-motion: reduce) { .sec + .sec::before { animation: none; } }
+
+/* Tetesan lebih kontras */
+.sec + .sec::before {
+  background: linear-gradient(180deg, #f2faff 0%, #bfe3ff 55%, #7fbdf0 100%);
+}
+.sec + .sec::before { background: var(--gold-grad); }
