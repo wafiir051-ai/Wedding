@@ -10,7 +10,7 @@ window.SITE = {
   },
   groom: {
     nickname: 'Agus',
-    fullName: 'Agus',          // TODO: isi nama lengkap + gelar
+    fullName: 'Agus Kurniawan',        // TODO: isi nama lengkap + gelar
     parents: '',               // contoh: 'Putra dari Bapak ... dan Ibu ...'
     instagram: '',             // contoh: 'https://instagram.com/username'
     whatsapp: '',              // contoh: '62812xxxxxxx'
@@ -39,7 +39,10 @@ window.SITE = {
   },
   // Kirim hadiah / amplop digital. Kosong = section disembunyikan.
   // Contoh: { type: 'BRI', name: 'Nama Pemilik', number: '1234567890' }
-  gifts: [],
+  gifts: [
+    { type: 'BNI', name: 'Agus Kurniawan', number: '2107365956' },   // TODO: pastikan bank Agus
+    { type: 'BNI', name: 'Sinta Juliani', number: '2083931631' },
+  ],
   giftAddress: '',             // alamat kirim kado (opsional)
   music: { src: 'audio/pernikahan-kita.mp3', title: 'Pernikahan Kita — Tiara Andini & Arsy Widianto' },
   // Template pesan WhatsApp untuk tombol "Salin pesan" di panel admin.
