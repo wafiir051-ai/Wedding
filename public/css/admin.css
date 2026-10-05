@@ -98,3 +98,22 @@ tbody tr:nth-child(even) td { background: #f9fcff; }
 .msg { border-left: 4px solid currentColor; }
 .btn.sm { transition: border-color .2s, color .2s, background .2s, transform .15s; }
 .top .btn:active { transform: scale(.96); }
+
+/* Perapian HP tahap 2 */
+@media (max-width: 640px) {
+  .top { padding: .8rem 1rem; row-gap: .7rem; column-gap: .5rem; }
+  .top strong { font-size: 1.05rem; }
+  .top .btn { padding: .45rem .8rem; }
+  .stats { gap: .6rem; padding: 1rem .8rem .6rem; }
+  .stat { padding: .75rem .85rem; }
+  .stat b { margin-bottom: .15rem; }
+  .stat span { display: block; line-height: 1.25; }
+  .tabs { margin-top: .4rem; }
+  .panel { padding: 1rem .8rem; }
+  #tab-rsvp .bar { gap: .6rem; margin: 0 0 .9rem; }
+  #tab-rsvp .bar .btn.primary { padding: .75rem 1rem; }
+  th, td { padding: .7rem .9rem; }
+  th { font-size: .72rem; }
+  th:last-child, td:last-child { padding-right: 1.3rem; }
+  .empty { padding: 2.5rem 1rem; }
+}
