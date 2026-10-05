@@ -164,7 +164,6 @@ body {
     radial-gradient(700px 360px at 90% -80px, rgba(127, 189, 240, .35), transparent 70%),
     radial-gradient(600px 320px at -10% 30%, rgba(191, 227, 255, .45), transparent 70%),
     var(--bg);
-  background-attachment: fixed;
 }
 
 /* Halaman login */
@@ -274,3 +273,11 @@ dialog.help:not([data-gate]) #helpClose { display: block; margin-top: 1.2rem; }
 .fig { margin: .6rem 0 .9rem; padding: .7rem; background: #f4f9fe; border: 1px solid var(--line); border-radius: 14px; }
 .fig svg, .fig img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .fig figcaption { margin-top: .45rem; font-size: .78rem; color: #6b8299; text-align: center; }
+
+/* Mode ringan untuk perangkat lama */
+.lite *, .lite *::before, .lite *::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  animation-iteration-count: 1 !important;
+}
+.lite body { background-attachment: scroll !important; }
