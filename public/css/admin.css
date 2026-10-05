@@ -75,3 +75,26 @@ dialog form{display:grid;gap:.8rem}
 .tab { transition: color .2s, border-color .2s; }
 .tab:hover { color: var(--m); }
 input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(90, 169, 230, .3); }
+
+/* Polish tahap 2: admin */
+.box { border-top: 5px solid var(--m); }
+.btn.primary { background: linear-gradient(135deg, var(--m), var(--md)); }
+.btn.primary:hover { background: var(--md); }
+.badge::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; margin-right: .35rem; vertical-align: middle; }
+.table-wrap tbody tr { transition: background .15s; }
+.table-wrap tbody tr:hover td { background: #f4faff; }
+.stat b { background: linear-gradient(135deg, var(--m), var(--md)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+dialog::backdrop { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+dialog { border-top: 5px solid var(--m); }
+.toast { animation: toastIn .35s ease both; }
+@keyframes toastIn { from { opacity: 0; transform: translate(-50%, 14px); } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+
+/* Polish tahap 3: admin */
+.add textarea { min-height: 7rem; resize: vertical; }
+tbody tr:nth-child(even) td { background: #f9fcff; }
+::placeholder { color: #8aa0b4; }
+.who { opacity: .9; }
+.msg { border-left: 4px solid currentColor; }
+.btn.sm { transition: border-color .2s, color .2s, background .2s, transform .15s; }
+.top .btn:active { transform: scale(.96); }

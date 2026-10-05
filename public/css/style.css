@@ -361,3 +361,38 @@ body { scrollbar-width: thin; scrollbar-color: var(--gold-deep) var(--maroon-dar
 .btn:active { transform: scale(.97); }
 input, textarea, select { transition: border-color .25s, box-shadow .25s; }
 input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 3px rgba(90, 169, 230, .35); }
+
+/* Polish tahap 2: undangan */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a { transition: color .25s, opacity .25s; }
+.cover-names { text-shadow: 0 4px 22px rgba(10, 40, 80, .6), 0 0 38px rgba(190, 225, 255, .35); }
+.cover-date { box-shadow: 0 8px 24px rgba(10, 40, 80, .25), inset 0 1px 0 rgba(255, 255, 255, .18); }
+.btn-open { transition: filter .3s, box-shadow .3s; }
+.quran-id { box-shadow: 0 14px 40px rgba(10, 40, 80, .28), inset 0 1px 0 rgba(255, 255, 255, .15); }
+.choice span { transition: transform .25s, box-shadow .25s, border-color .25s, background .25s, color .25s; }
+.bottom-nav button { transition: color .25s, transform .3s var(--ease), text-shadow .25s; }
+@media (hover: hover) {
+  .btn-open:hover { filter: brightness(1.07); box-shadow: 0 0 40px rgba(190, 225, 255, .7), var(--shadow); }
+  .card { transition: box-shadow .4s; }
+  .card:hover { box-shadow: 0 28px 64px rgba(10, 40, 80, .4), inset 0 1px 0 rgba(255, 255, 255, .7); }
+  .count-item { transition: background .3s, border-color .3s; }
+  .count-item:hover { background: rgba(255, 255, 255, .2); border-color: rgba(190, 225, 255, .8); }
+  .choice span:hover { transform: translateY(-2px); }
+  .bottom-nav button:not(.active):hover { color: #fff; }
+  .socials a:hover { filter: brightness(1.08); }
+}
+
+/* Polish tahap 3: per section */
+img { -webkit-user-drag: none; }
+::placeholder { color: rgba(77, 106, 130, .65); }
+.sec + .sec { border-top: 1px solid rgba(190, 225, 255, .14); }
+#gallerySection img { border-radius: 14px; box-shadow: 0 12px 30px rgba(10, 40, 80, .35); transition: filter .4s, box-shadow .4s; }
+#coupleSection img { box-shadow: 0 14px 36px rgba(10, 40, 80, .38); }
+#rsvpSection .btn-block { letter-spacing: .08em; }
+#rsvpSection input, #rsvpSection textarea, #rsvpSection select { border-radius: 12px; }
+.fab { box-shadow: 0 8px 22px rgba(10, 40, 80, .4), 0 0 0 1px rgba(190, 225, 255, .35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+@media (hover: hover) {
+  #gallerySection img:hover { filter: brightness(1.07) saturate(1.1); box-shadow: 0 18px 40px rgba(10, 40, 80, .5); }
+}
