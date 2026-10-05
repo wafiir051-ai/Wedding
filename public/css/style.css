@@ -416,15 +416,15 @@ img { -webkit-user-drag: none; }
 .sec { position: relative; }
 .sec + .sec { --drip: #2871af; }
 .sec + .sec::before {
-  content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 40px; z-index: 2; pointer-events: none;
+  content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 20px; z-index: 2; pointer-events: none;
   background: var(--drip);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40'%3E%3Cpath d='M0 0H240V10H207Q202 10 202 18V25A7 7 0 0 1 188 25V18Q188 10 183 10H134Q129 10 129 18V21A7 7 0 0 1 115 21V18Q115 10 110 10H67Q62 10 62 18V31A7 7 0 0 1 48 31V18Q48 10 43 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 240px 40px;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40'%3E%3Cpath d='M0 0H240V10H207Q202 10 202 18V25A7 7 0 0 1 188 25V18Q188 10 183 10H134Q129 10 129 18V21A7 7 0 0 1 115 21V18Q115 10 110 10H67Q62 10 62 18V31A7 7 0 0 1 48 31V18Q48 10 43 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 240px 40px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40'%3E%3Cpath d='M0 0H240V10H207Q202 10 202 18V25A7 7 0 0 1 188 25V18Q188 10 183 10H134Q129 10 129 18V21A7 7 0 0 1 115 21V18Q115 10 110 10H67Q62 10 62 18V31A7 7 0 0 1 48 31V18Q48 10 43 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 120px 20px;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40'%3E%3Cpath d='M0 0H240V10H207Q202 10 202 18V25A7 7 0 0 1 188 25V18Q188 10 183 10H134Q129 10 129 18V21A7 7 0 0 1 115 21V18Q115 10 110 10H67Q62 10 62 18V31A7 7 0 0 1 48 31V18Q48 10 43 10H0Z'/%3E%3C/svg%3E") repeat-x top left / 120px 20px;
   transform-origin: top; animation: melt 5s ease-in-out infinite alternate;
 }
 @keyframes melt { from { transform: scaleY(.82); } to { transform: scaleY(1.08); } }
 @media (prefers-reduced-motion: reduce) { .sec + .sec::before { animation: none; } }
-.sec + .sec { padding-top: calc(clamp(4.5rem, 11vw, 7.5rem) + 28px); }
+.sec + .sec { padding-top: calc(clamp(4.5rem, 11vw, 7.5rem) + 10px); }
 
 /* Warna tetesan per batas, mengikuti section di atasnya */
 .sec-prolog + .sec { --drip: #266faf; }
@@ -438,3 +438,4 @@ img { -webkit-user-drag: none; }
 .sec-gallery + .sec { --drip: #286faf; }
 .sec-rsvp + .sec { --drip: #266faf; }
 .sec-guestbook + .sec { --drip: #286faf; }
+.sec + .sec::before { animation: none; }
