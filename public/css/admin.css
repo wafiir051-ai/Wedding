@@ -269,3 +269,8 @@ dialog.help:not([data-gate]) #helpClose { display: block; margin-top: 1.2rem; }
 .ack-row input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--m); flex: none; }
 .ack-row input:disabled { cursor: not-allowed; }
 .ack .btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+
+/* Gambar di panduan */
+.fig { margin: .6rem 0 .9rem; padding: .7rem; background: #f4f9fe; border: 1px solid var(--line); border-radius: 14px; }
+.fig svg, .fig img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.fig figcaption { margin-top: .45rem; font-size: .78rem; color: #6b8299; text-align: center; }
