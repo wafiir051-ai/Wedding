@@ -157,3 +157,82 @@ select:focus {
 }
 .back:hover { background: #fff; color: var(--md); }
 .back:active { transform: scale(.97); }
+
+/* Polish tahap 4: admin lebih estetik */
+body {
+  background:
+    radial-gradient(700px 360px at 90% -80px, rgba(127, 189, 240, .35), transparent 70%),
+    radial-gradient(600px 320px at -10% 30%, rgba(191, 227, 255, .45), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* Halaman login */
+.login {
+  background:
+    radial-gradient(500px 300px at 15% 10%, rgba(191, 227, 255, .35), transparent 70%),
+    radial-gradient(500px 360px at 90% 95%, rgba(127, 189, 240, .35), transparent 70%),
+    linear-gradient(135deg, var(--m), var(--md));
+}
+.box { border-radius: 22px; padding: 2.2rem 1.8rem; border-top-width: 6px; }
+.box h1 { font-size: 1.6rem; letter-spacing: .01em; }
+
+/* Bar atas */
+.top {
+  border-radius: 0 0 20px 20px;
+  padding-top: .9rem; padding-bottom: .9rem;
+}
+.top strong { letter-spacing: .02em; }
+.top .btn { border-radius: 99px; }
+
+/* Kartu statistik dengan aksen warna */
+.stat { border-top: 4px solid var(--m); border-radius: 16px; position: relative; overflow: hidden; }
+.stat:nth-child(2) { border-top-color: #3fae6a; }
+.stat:nth-child(3) { border-top-color: #2b7bbf; }
+.stat:nth-child(4) { border-top-color: #e0a824; }
+.stat:nth-child(5) { border-top-color: #d95555; }
+.stat:nth-child(6) { border-top-color: #8a6bd1; }
+.stat span { text-transform: uppercase; letter-spacing: .04em; font-size: .7rem; font-weight: 600; }
+
+/* Tab model pil */
+.tabs { gap: .5rem; padding-top: .3rem; padding-bottom: .3rem; }
+.tab {
+  border-bottom: 0; border-radius: 99px;
+  padding: .5rem 1.1rem; background: rgba(43, 123, 191, .08);
+}
+.tab:hover { background: rgba(43, 123, 191, .16); }
+.tab.active { background: var(--m); color: #fff; box-shadow: 0 4px 12px rgba(43, 123, 191, .35); }
+
+/* Bar pencarian dan filter */
+.bar input, .bar select { border-radius: 12px; box-shadow: 0 2px 8px rgba(31, 58, 82, .05); }
+.btn { border-radius: 12px; }
+.btn.primary { box-shadow: 0 6px 16px rgba(43, 123, 191, .3); }
+.btn.primary:hover { box-shadow: 0 8px 20px rgba(28, 90, 148, .35); }
+
+/* Tabel */
+.table-wrap { border-radius: 16px; overflow-x: auto; }
+th { background: linear-gradient(180deg, #eef7ff, #e1effa); border-bottom: 2px solid var(--line); }
+td { color: var(--ink); }
+.empty { color: #6b8299; font-style: italic; }
+.badge { padding: .2rem .7rem; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05); }
+
+/* Kartu tambah tamu */
+.add { border-radius: 16px; border-left: 4px solid var(--g); }
+.hint { line-height: 1.5; }
+
+/* Dialog dan toast */
+dialog { border-radius: 20px; padding: 1.6rem; }
+dialog h2, dialog h3 { color: var(--md); }
+.toast { background: linear-gradient(135deg, var(--md), var(--m)); font-weight: 600; }
+
+/* Scrollbar tipis */
+* { scrollbar-width: thin; scrollbar-color: #9cc6e8 transparent; }
+::-webkit-scrollbar { height: 8px; width: 8px; }
+::-webkit-scrollbar-thumb { background: #9cc6e8; border-radius: 99px; }
+
+/* HP */
+@media (max-width: 640px) {
+  .top { border-radius: 0 0 16px 16px; }
+  .tab { padding: .5rem .9rem; font-size: .9rem; }
+  .stat { border-top-width: 3px; }
+}
