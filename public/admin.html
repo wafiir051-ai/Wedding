@@ -76,6 +76,54 @@
   </form></dialog>
 
   <div class="toast" id="toast" hidden></div>
+  <!-- Panduan admin -->
+  <button class="help-fab" type="button" aria-label="Panduan admin" onclick="document.getElementById('helpDialog').showModal()">? Panduan</button>
+  <dialog id="helpDialog" class="help">
+    <h2>Panduan Admin</h2>
+    <p class="hint">Halaman ini dipakai untuk memantau konfirmasi kehadiran dan membagikan undangan ke tamu.</p>
+
+    <h3>1. Kartu angka di atas</h3>
+    <ul>
+      <li><b>Total respon</b>: jumlah tamu yang sudah mengisi RSVP.</li>
+      <li><b>Hadir</b>: tamu yang menjawab akan hadir.</li>
+      <li><b>Total tamu hadir</b>: jumlah orang yang datang, termasuk yang dibawa tamu.</li>
+      <li><b>Masih ragu</b> dan <b>Tidak hadir</b>: jawaban lainnya.</li>
+      <li><b>Ucapan</b>: jumlah ucapan dan doa yang masuk.</li>
+    </ul>
+
+    <h3>2. Tab Konfirmasi &amp; Ucapan</h3>
+    <ul>
+      <li>Berisi jawaban RSVP dan ucapan dari tamu, tampil otomatis di tabel.</li>
+      <li><b>Cari</b>: ketik nama atau isi ucapan untuk menyaring tabel.</li>
+      <li><b>Filter</b> (&ldquo;Semua&rdquo;): tampilkan hanya yang Hadir, Ragu, atau Tidak hadir.</li>
+      <li><b>Tombol panah berputar</b>: muat ulang data terbaru.</li>
+      <li><b>Ekspor CSV</b>: unduh data ke file yang bisa dibuka di Excel atau Google Sheets.</li>
+      <li>Tabel bisa digeser ke samping di HP. Kolom nama tetap terlihat.</li>
+    </ul>
+
+    <h3>3. Tab Daftar Tamu &amp; Link</h3>
+    <ul>
+      <li>Tambahkan nama tamu supaya masing-masing punya <b>link undangan pribadi</b>, dan nama mereka tampil di undangan.</li>
+      <li>Salin pesan atau link, lalu kirim lewat WhatsApp. Teks pesan bisa diubah di <code>shareMessage</code> pada <code>site-config.js</code>.</li>
+      <li>Tamu yang tidak perlu ditampilkan atau sudah tidak relevan bisa disembunyikan atau dihapus lewat tombol di barisnya. Hapus tidak bisa dibatalkan.</li>
+    </ul>
+
+    <h3>4. Bar atas</h3>
+    <ul>
+      <li><b>Tombol kunci</b>: ganti password admin.</li>
+      <li><b>Keluar</b>: logout. Selalu logout kalau memakai HP atau komputer orang lain.</li>
+    </ul>
+
+    <h3>Tips</h3>
+    <ul>
+      <li>Data masuk langsung saat tamu mengirim RSVP. Tekan tombol muat ulang untuk melihat yang terbaru.</li>
+      <li>Jangan bagikan alamat halaman admin atau password ke tamu.</li>
+      <li>Unduh CSV secara berkala sebagai cadangan, terutama menjelang hari H.</li>
+    </ul>
+
+    <form method="dialog"><button class="btn primary">Mengerti</button></form>
+  </dialog>
+
   <script src="js/sb.js"></script>
   <script src="js/admin.js"></script>
 </body>

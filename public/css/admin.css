@@ -236,3 +236,25 @@ dialog h2, dialog h3 { color: var(--md); }
   .tab { padding: .5rem .9rem; font-size: .9rem; }
   .stat { border-top-width: 3px; }
 }
+
+/* Panduan admin */
+.help-fab {
+  position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 15;
+  font: inherit; font-weight: 700; font-size: .88rem; color: #fff; cursor: pointer;
+  padding: .65rem 1.1rem; border: 0; border-radius: 99px;
+  background: linear-gradient(135deg, var(--m), var(--md));
+  box-shadow: 0 8px 20px rgba(28, 90, 148, .4);
+  transition: transform .15s, box-shadow .2s;
+}
+.help-fab:hover { box-shadow: 0 10px 26px rgba(28, 90, 148, .5); }
+.help-fab:active { transform: scale(.96); }
+body:has(#loginView:not([hidden])) .help-fab { display: none; }
+
+dialog.help { width: min(560px, 94vw); max-height: 88vh; overflow-y: auto; display: block; }
+dialog.help:not([open]) { display: none; }
+dialog.help h2 { color: var(--md); margin-bottom: .2rem; }
+dialog.help h3 { font-size: 1rem; margin: 1.1rem 0 .3rem; color: var(--m); }
+dialog.help ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .3rem; font-size: .92rem; }
+dialog.help code { background: #e8f3fb; padding: .05rem .35rem; border-radius: 6px; font-size: .85em; }
+dialog.help form { margin-top: 1.2rem; }
+dialog.help .btn { width: 100%; }
