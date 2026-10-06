@@ -491,3 +491,7 @@ img { -webkit-user-drag: none; }
 
 .lite .cover-bg { filter: none; animation: none; }
 .lite .ambient { display: none !important; }
+
+/* Judul bagian: tulisan tangan romantis, serasi dengan nama di cover */
+.sec-title { font-family: 'Great Vibes', cursive; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(3rem, 13vw, 4.8rem); line-height: 1.2; }
+.sec-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 3.8vw, 1.3rem); letter-spacing: .04em; }
