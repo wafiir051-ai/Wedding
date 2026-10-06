@@ -542,3 +542,28 @@ img { -webkit-user-drag: none; }
 .gift-card h3 { font-size: clamp(2.1rem, 8vw, 2.7rem); }
 .event-card h3::after { content: ''; display: block; width: 64px; height: 1px; margin: .8rem auto 0; background: linear-gradient(90deg, transparent, var(--gold-deep), transparent); }
 .gift-card > i { color: var(--gold-deep); }
+
+/* ===== Halaman dalam elegan, bagian 2 ===== */
+
+/* Nama di kartu Mempelai: Playfair hanya dimuat italic */
+.couple-card .full { font-style: italic; }
+
+/* Countdown: kotak berbentuk lengkung, serasi dengan bingkai foto cover */
+.count-item { border-radius: 999px 999px 16px 16px; padding-top: clamp(1.1rem, 5vw, 2rem); background: linear-gradient(180deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .05)); border-color: rgba(200, 230, 255, .5); }
+.count-item b { font-weight: 400; }
+.count-item span { letter-spacing: .26em; font-size: clamp(.58rem, 2.3vw, .8rem); opacity: .9; }
+
+/* Galeri: slider berbingkai, tombol kaca tipis */
+.slider { margin-inline: clamp(.8rem, 4vw, 2rem); border-radius: 26px; }
+.slider-btn { background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .55); color: #fff; }
+.slider-count { font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: .12em; }
+.tier-mid .slide .bg { filter: brightness(.5); }
+
+/* RSVP: label kecil renggang, isian lembut */
+.field label, .field legend { font-size: .76rem; letter-spacing: .18em; text-transform: uppercase; }
+.field label small { text-transform: none; letter-spacing: .02em; }
+#rsvpSection .field input[type=text], #rsvpSection .field select, #rsvpSection .field textarea { background: #f7fbff; border: 1px solid rgba(90, 169, 230, .4); border-radius: 14px; box-shadow: inset 0 1px 3px rgba(10, 40, 80, .06); }
+.choice span { border-radius: 14px; }
+
+/* Tombol: huruf kapital renggang */
+.btn { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
