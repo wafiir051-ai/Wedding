@@ -495,3 +495,27 @@ img { -webkit-user-drag: none; }
 /* Judul bagian: tulisan tangan romantis, serasi dengan nama di cover */
 .sec-title { font-family: 'Great Vibes', cursive; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(3rem, 13vw, 4.8rem); line-height: 1.2; }
 .sec-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 3.8vw, 1.3rem); letter-spacing: .04em; }
+
+/* ===== Cover elegan ===== */
+.cover .cover-shade { background: radial-gradient(ellipse 70% 45% at 50% 28%, rgba(150, 200, 245, .38), transparent 70%), linear-gradient(180deg, rgba(30, 85, 145, .5) 0%, rgba(18, 58, 108, .88) 55%, rgba(10, 36, 74, .96) 100%); }
+
+.cover .cover-intro { display: flex; align-items: center; justify-content: center; gap: .9em; font-size: clamp(.7rem, 2.8vw, .9rem); letter-spacing: .45em; color: rgba(225, 240, 255, .88); }
+.cover .cover-intro::before, .cover .cover-intro::after { content: ''; width: clamp(24px, 8vw, 48px); height: 1px; background: linear-gradient(90deg, transparent, rgba(190, 225, 255, .85)); }
+.cover .cover-intro::after { transform: scaleX(-1); }
+
+.cover .cover-names { margin-top: clamp(.7rem, 2.2svh, 1.3rem); font-size: clamp(3.2rem, 15vw, 6.2rem); color: #eaf4ff; text-shadow: 0 2px 30px rgba(190, 225, 255, .5); }
+.cover .cn-amp { font-size: .5em; color: var(--gold-soft); }
+
+.cover .cover-date { background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border: 0; border-radius: 0; border-top: 1px solid rgba(190, 225, 255, .5); border-bottom: 1px solid rgba(190, 225, 255, .5); padding: .75rem 0; min-width: min(78%, 300px); text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 4vw, 1.25rem); letter-spacing: .1em; color: #fff; }
+
+.cover .cover-guest { width: min(88%, 380px); padding: 1.1rem 1.4rem; border: 1px solid rgba(190, 225, 255, .3); border-radius: 22px; background: linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03)); }
+
+/* ===== Cover elegan, bagian 2 ===== */
+.cover .arch-ring { border: 1px solid rgba(200, 230, 255, .55); box-shadow: 0 22px 55px rgba(5, 25, 60, .45); }
+
+.cover .cover-guest { gap: .35rem; align-items: center; text-align: center; }
+.cover .cover-guest span { font-size: .68rem; letter-spacing: .32em; text-transform: uppercase; opacity: .85; }
+.cover .cover-guest strong { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(1.35rem, 5.6vw, 1.85rem); letter-spacing: .02em; color: #fff; padding: .1rem 0; text-shadow: 0 2px 14px rgba(10, 40, 80, .5); }
+.cover .cover-guest small { font-size: .64rem; opacity: .6; letter-spacing: .03em; }
+
+.cover .btn-open { letter-spacing: .24em; font-size: .78rem; font-weight: 600; padding: 1rem 2.4rem; }
