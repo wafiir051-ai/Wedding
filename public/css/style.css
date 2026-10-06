@@ -567,3 +567,36 @@ img { -webkit-user-drag: none; }
 
 /* Tombol: huruf kapital renggang */
 .btn { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
+
+/* ===== Halaman dalam elegan, bagian 3 ===== */
+
+/* Ayat */
+.quran-ar { color: #f4faff; text-shadow: 0 2px 22px rgba(190, 225, 255, .45); }
+.quran-id { background: linear-gradient(180deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04)); border-color: rgba(200, 230, 255, .45); box-shadow: 0 14px 40px rgba(10, 40, 80, .28), inset 0 1px 0 rgba(255, 255, 255, .22); line-height: 1.85; }
+.quran-id cite { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: .12em; color: var(--gold-soft); }
+.quran-id cite::before { content: ''; display: block; width: 46px; height: 1px; margin: 0 auto .9rem; background: linear-gradient(90deg, transparent, rgba(220, 240, 255, .9), transparent); }
+
+/* Acara: ikon bercincin tipis */
+.event-icon { box-shadow: 0 0 0 6px rgba(255, 255, 255, .7), 0 0 0 7px rgba(90, 169, 230, .4), 0 14px 30px rgba(10, 40, 80, .25); }
+.event-list li { font-weight: 400; }
+
+/* Sosial: lingkaran garis tipis */
+.socials a { background: transparent; border: 1px solid var(--gold-deep); color: var(--maroon); }
+.socials a:hover { background: var(--maroon); color: #fff; }
+
+/* Peta: bingkai ganda tipis */
+.map-frame { border: 1px solid rgba(225, 242, 255, .85); outline: 1px solid rgba(190, 225, 255, .35); outline-offset: 6px; border-radius: 26px; box-shadow: 0 22px 50px rgba(10, 40, 80, .38); }
+
+/* Form RSVP */
+.form-card .btn-block { margin-top: .4rem; }
+
+/* Buku tamu: kartu halus, nama italic */
+.gb-item { border-left: 0; border: 1px solid rgba(255, 255, 255, .85); border-radius: 20px; background: linear-gradient(180deg, #ffffff, #f1f8ff); box-shadow: 0 12px 30px rgba(10, 40, 80, .26), inset 0 1px 0 #fff; padding: 1.2rem 1.3rem; }
+.gb-name { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 1.1rem; }
+.badge { font-size: .6rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; }
+.gb-msg { font-weight: 300; line-height: 1.7; }
+.gb-time { color: var(--ink-soft); opacity: .75; font-size: .72rem; letter-spacing: .04em; }
+
+/* Footer: garis tipis di atas dan latar bergradasi */
+.footer { background: linear-gradient(180deg, #1a5086 0%, #123e6c 100%); }
+.footer::before { content: ''; display: block; width: clamp(120px, 40vw, 200px); height: 1px; margin: 0 auto 1.8rem; background: linear-gradient(90deg, transparent, rgba(220, 240, 255, .9), transparent); }
