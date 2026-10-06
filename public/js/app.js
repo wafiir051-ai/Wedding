@@ -156,7 +156,7 @@
     // Nav aktif
     const navMap = { prologSection: 'prologSection', coupleSection: 'coupleSection', quranSection: 'coupleSection', countdownSection: 'eventSection', eventSection: 'eventSection', mapSection: 'eventSection', giftSection: 'giftSection', gallerySection: 'gallerySection', rsvpSection: 'rsvpSection', guestbookSection: 'rsvpSection', closingSection: 'rsvpSection' };
     const nv = new IntersectionObserver((es) => es.forEach((e) => {
-      if (!e.isIntersecting) return;
+      if (!e.isIntersecting || window.__navLock) return;
       const target = navMap[e.target.id];
       $$('#bottomNav button').forEach((b) => b.classList.toggle('active', b.dataset.go === target));
     }), { rootMargin: '-45% 0px -50% 0px' });
@@ -357,6 +357,11 @@
     $$('#bottomNav button').forEach((b) => b.addEventListener('click', () => {
       const t = b.dataset.go === 'prologSection' ? null : document.getElementById(b.dataset.go);
       document.documentElement.style.scrollBehavior = '';
+      $$('#bottomNav button').forEach((x) => x.classList.toggle('active', x === b));
+      window.__navLock = true; clearTimeout(window.__navT);
+      const unlock = () => { window.__navLock = false; clearTimeout(window.__navT); };
+      if ('onscrollend' in window) addEventListener('scrollend', unlock, { once: true });
+      window.__navT = setTimeout(unlock, 2000);
       if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); else scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     }));
   }
