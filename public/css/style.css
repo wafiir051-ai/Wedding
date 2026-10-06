@@ -519,3 +519,26 @@ img { -webkit-user-drag: none; }
 .cover .cover-guest small { font-size: .64rem; opacity: .6; letter-spacing: .03em; }
 
 .cover .btn-open { letter-spacing: .24em; font-size: .78rem; font-weight: 600; padding: 1rem 2.4rem; }
+
+/* ===== Halaman dalam elegan ===== */
+
+/* Ornamen judul: garis tipis dengan berlian kecil di tengah */
+.sec-title::after { height: 1px; border-radius: 0; background: linear-gradient(90deg, transparent, rgba(220, 240, 255, .95), transparent); }
+.sec-title.revealed::after { width: clamp(150px, 46vw, 220px); }
+.sec-title::before { content: ''; position: absolute; left: 50%; bottom: -4px; width: 9px; height: 9px; background: #eaf6ff; transform: translateX(-50%) rotate(45deg) scale(0); transition: transform .8s var(--ease) 1.1s; }
+.sec-title.revealed::before { transform: translateX(-50%) rotate(45deg) scale(1); }
+
+/* Kartu: gradasi halus dan bingkai ganda tipis */
+.card { background: linear-gradient(180deg, #ffffff 0%, #f1f8ff 100%); border-color: rgba(255, 255, 255, .85); box-shadow: 0 2px 4px rgba(10, 40, 80, .08), 0 26px 60px rgba(10, 40, 80, .34), inset 0 1px 0 #fff; }
+.card::before { border-color: rgba(90, 169, 230, .38); }
+
+/* Mempelai */
+.couple-card .full { font-family: 'Playfair Display', serif; font-style: normal; font-weight: 400; font-size: 1.1rem; letter-spacing: .05em; }
+.couple-card .parents { font-weight: 300; line-height: 1.75; }
+
+/* Acara dan Hadiah: judul tulisan tangan, garis tipis di bawahnya */
+.event-card h3, .gift-card h3 { font-family: 'Great Vibes', cursive; font-weight: 400; letter-spacing: 0; line-height: 1.15; }
+.event-card h3 { font-size: clamp(2.5rem, 10vw, 3.4rem); margin-bottom: 1.4rem; }
+.gift-card h3 { font-size: clamp(2.1rem, 8vw, 2.7rem); }
+.event-card h3::after { content: ''; display: block; width: 64px; height: 1px; margin: .8rem auto 0; background: linear-gradient(90deg, transparent, var(--gold-deep), transparent); }
+.gift-card > i { color: var(--gold-deep); }
