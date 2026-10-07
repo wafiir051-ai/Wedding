@@ -600,3 +600,6 @@ img { -webkit-user-drag: none; }
 /* Footer: garis tipis di atas dan latar bergradasi */
 .footer { background: linear-gradient(180deg, #1a5086 0%, #123e6c 100%); }
 .footer::before { content: ''; display: block; width: clamp(120px, 40vw, 200px); height: 1px; margin: 0 auto 1.8rem; background: linear-gradient(90deg, transparent, rgba(220, 240, 255, .9), transparent); }
+
+/* Perangkat lama: latar galeri cukup warna polos */
+.tier-mid .slide .bg, .lite .slide .bg { display: none; }
