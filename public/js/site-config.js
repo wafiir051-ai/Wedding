@@ -44,11 +44,10 @@ window.SITE = {
     { type: 'BNI', name: 'Sinta Juliani', number: '2083931631' },
   ],
   // Awal mula bertemu (timeline). Kosongkan ([]) = bagian disembunyikan.
-  // TODO: ganti semua teks CONTOH. Entri berawalan CONTOH tidak tampil di website live.
   story: [
-    { date: 'CONTOH: bulan dan tahun', title: 'Pertama Bertemu', text: 'CONTOH: tulis di mana dan bagaimana Agus dan Sinta pertama kali bertemu.' },
-    { date: 'CONTOH: bulan dan tahun', title: 'Mulai Dekat', text: 'CONTOH: tulis momen ketika mereka mulai dekat.' },
-    { date: 'CONTOH: bulan dan tahun', title: 'Lamaran', text: 'CONTOH: tulis cerita lamaran atau keputusan menikah.' },
+    { date: 'Agustus 2025', title: 'Takdir di Balik Algoritma', text: 'Bagi kami, algoritma TikTok bukan sekadar teknologi, melainkan cara semesta mempertemukan dua hati. Pertemuan pertama kami terjadi di ruang Live TikTok pada bulan Agustus 2025. Lewat sapaan singkat di kolom komentar, obrolan itu tumbuh menjadi rasa nyaman yang tak tergantikan.' },
+    { date: '27 Januari 2026', title: 'Satu Langkah Lebih Dekat', text: 'Kami memutuskan membawa cerita digital ini ke dunia nyata. Menemukan kecocokan yang utuh, kami akhirnya mengikat janji setia dalam acara pertunangan pada 27 Januari 2026.' },
+    { date: '19 November 2026', title: 'Menuju Selamanya', text: 'Kini, perjalanan panjang yang dimulai dari sebuah ketukan layar digital akan bermuara pada pelaminan. Kami siap memulai babak baru sebagai suami istri pada tanggal 19 November 2026.' },
   ],
   giftAddress: '',             // alamat kirim kado (opsional)
   music: { src: 'audio/pernikahan-kita.mp3', title: 'Pernikahan Kita — Tiara Andini & Arsy Widianto' },
