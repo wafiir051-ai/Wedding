@@ -43,6 +43,13 @@ window.SITE = {
     { type: 'BNI', name: 'Agus Kurniawan', number: '2107365956' },   // TODO: pastikan bank Agus
     { type: 'BNI', name: 'Sinta Juliani', number: '2083931631' },
   ],
+  // Awal mula bertemu (timeline). Kosongkan ([]) = bagian disembunyikan.
+  // TODO: ganti semua teks CONTOH. Entri berawalan CONTOH tidak tampil di website live.
+  story: [
+    { date: 'CONTOH: bulan dan tahun', title: 'Pertama Bertemu', text: 'CONTOH: tulis di mana dan bagaimana Agus dan Sinta pertama kali bertemu.' },
+    { date: 'CONTOH: bulan dan tahun', title: 'Mulai Dekat', text: 'CONTOH: tulis momen ketika mereka mulai dekat.' },
+    { date: 'CONTOH: bulan dan tahun', title: 'Lamaran', text: 'CONTOH: tulis cerita lamaran atau keputusan menikah.' },
+  ],
   giftAddress: '',             // alamat kirim kado (opsional)
   music: { src: 'audio/pernikahan-kita.mp3', title: 'Pernikahan Kita — Tiara Andini & Arsy Widianto' },
   // Template pesan WhatsApp untuk tombol "Salin pesan" di panel admin.

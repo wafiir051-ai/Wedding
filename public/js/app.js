@@ -154,7 +154,7 @@
     secs.forEach((s) => on.observe(s));
 
     // Nav aktif
-    const navMap = { prologSection: 'prologSection', coupleSection: 'coupleSection', quranSection: 'coupleSection', countdownSection: 'eventSection', eventSection: 'eventSection', mapSection: 'eventSection', giftSection: 'giftSection', gallerySection: 'gallerySection', rsvpSection: 'rsvpSection', guestbookSection: 'rsvpSection', closingSection: 'rsvpSection' };
+    const navMap = { prologSection: 'prologSection', coupleSection: 'coupleSection', quranSection: 'coupleSection', storySection: 'coupleSection', countdownSection: 'eventSection', eventSection: 'eventSection', mapSection: 'eventSection', giftSection: 'giftSection', gallerySection: 'gallerySection', rsvpSection: 'rsvpSection', guestbookSection: 'rsvpSection', closingSection: 'rsvpSection' };
     const nv = new IntersectionObserver((es) => es.forEach((e) => {
       if (!e.isIntersecting || window.__navLock) return;
       const target = navMap[e.target.id];
@@ -366,8 +366,25 @@
     }));
   }
 
+  /* ---------- Awal mula bertemu ---------- */
+  function story() {
+    const live = !/^(localhost|127\.)/.test(location.hostname);
+    const items = (S.story || []).filter((it) => !(live && /^CONTOH/.test(it.date || '')));
+    if (!items.length) return;
+    $('#storySection').hidden = false;
+    const list = $('#storyList');
+    items.forEach((it, i) => {
+      const n = el('article', 'story-item');
+      n.dataset.reveal = 'up'; n.dataset.delay = i * 120;
+      if (it.date) n.append(text('span', 'story-date', it.date));
+      n.append(text('h3', '', it.title));
+      if (it.text) n.append(text('p', '', it.text));
+      list.append(n);
+    });
+  }
+
   /* ---------- Init ---------- */
-  fillSite();
+  fillSite(); story();
   $$('[data-letters]').forEach(splitLetters);
   $$('.sec-title').forEach(splitLetters);
   $$('[data-words]').forEach(splitWords);
