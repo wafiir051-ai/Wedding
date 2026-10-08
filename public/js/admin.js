@@ -50,19 +50,26 @@
     try { all = await SB.select('rsvps?select=*&order=updated_at.desc&limit=2000'); renderStats(); renderRsvps(); }
     catch (e) { guard(e); }
   }
+  const ACARA = { keduanya: 'Keduanya (18 & 19 Nov)', keluarga: 'Pertemuan Keluarga (18 Nov)', pernikahan: 'Pernikahan (19 Nov)' };
+  const acaraLabel = (r) => r.versi === 'keluarga' ? (ACARA[r.acara] || 'Keluarga') : 'Umum';
+  const hadirDi = (r, d) => r.attendance === 'hadir' && (d === 18
+    ? (r.versi === 'keluarga' && (r.acara === 'keduanya' || r.acara === 'keluarga'))
+    : (r.versi !== 'keluarga' || r.acara === 'keduanya' || r.acara === 'pernikahan'));
   function renderStats() {
     const hadir = all.filter((r) => r.attendance === 'hadir');
     const items = [
       ['Total respon', all.length], ['Hadir', hadir.length], ['Total tamu hadir', hadir.reduce((a, r) => a + r.pax, 0)],
       ['Masih ragu', all.filter((r) => r.attendance === 'ragu').length], ['Tidak hadir', all.filter((r) => r.attendance === 'tidak').length],
       ['Ucapan', all.filter((r) => r.message).length],
+      ['Tamu hadir 18 Nov', all.filter((r) => hadirDi(r, 18)).reduce((a, r) => a + r.pax, 0)],
+      ['Tamu hadir 19 Nov', all.filter((r) => hadirDi(r, 19)).reduce((a, r) => a + r.pax, 0)],
     ];
     const box = $('#stats'); box.innerHTML = '';
     items.forEach(([l, v]) => { const d = el('div', 'stat'); d.append(el('b', '', v), el('span', '', l)); box.append(d); });
   }
   function renderRsvps() {
-    const q = $('#q').value.trim().toLowerCase(), st = $('#statusFilter').value;
-    const rows = all.filter((r) => (!st || r.attendance === st) && (!q || (r.name + ' ' + r.message).toLowerCase().includes(q)));
+    const q = $('#q').value.trim().toLowerCase(), st = $('#statusFilter').value, af = $('#acaraFilter').value;
+    const rows = all.filter((r) => (!st || r.attendance === st) && (!af || (af === 'umum' ? r.versi !== 'keluarga' : hadirDi(r, af === 'd18' ? 18 : 19))) && (!q || (r.name + ' ' + r.message).toLowerCase().includes(q)));
     const body = $('#rsvpBody'); body.innerHTML = '';
     rows.forEach((r) => {
       const tr = el('tr', r.visible ? '' : 'hidden-row');
@@ -75,18 +82,19 @@
       del.onclick = async () => { if (!confirm(`Hapus data ${r.name}?`)) return; try { await SB.remove('rsvps?id=eq.' + r.id); all = all.filter((x) => x.id !== r.id); renderStats(); renderRsvps(); } catch (e) { guard(e); } };
       a.append(eye, del); act.append(a);
       const msg = el('td', 'msgcell', r.message || '—');
-      tr.append(el('td', '', r.name), s, el('td', '', r.attendance === 'tidak' ? '—' : r.pax), msg, el('td', '', fmt.format(new Date(r.updated_at))), act);
+      tr.append(el('td', '', r.name), s, el('td', '', r.attendance === 'tidak' ? '—' : acaraLabel(r)), el('td', '', r.attendance === 'tidak' ? '—' : r.pax), msg, el('td', '', fmt.format(new Date(r.updated_at))), act);
       body.append(tr);
     });
     $('#rsvpEmpty').hidden = rows.length > 0;
   }
   $('#q').addEventListener('input', renderRsvps);
   $('#statusFilter').addEventListener('change', renderRsvps);
+  $('#acaraFilter').addEventListener('change', renderRsvps);
   $('#reload').addEventListener('click', () => { loadRsvps(); loadGuests(); });
   $('#csv').addEventListener('click', () => {
     const c = (v) => { let s = String(v ?? ''); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return '"' + s.replace(/"/g, '""') + '"'; };
-    const lines = [['No', 'Nama', 'Kehadiran', 'Jumlah Tamu', 'Ucapan', 'Ditampilkan', 'Waktu'].map(c).join(',')];
-    [...all].reverse().forEach((r, i) => lines.push([i + 1, r.name, LBL[r.attendance], r.pax, r.message, r.visible ? 'ya' : 'tidak', r.updated_at].map(c).join(',')));
+    const lines = [['No', 'Nama', 'Kehadiran', 'Acara', 'Jumlah Tamu', 'Ucapan', 'Ditampilkan', 'Waktu'].map(c).join(',')];
+    [...all].reverse().forEach((r, i) => lines.push([i + 1, r.name, LBL[r.attendance], r.attendance === 'tidak' ? '' : acaraLabel(r), r.pax, r.message, r.visible ? 'ya' : 'tidak', r.updated_at].map(c).join(',')));
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' })), download: 'rsvp-agus-sinta.csv' });
     document.body.append(a); a.click(); a.remove();
   });

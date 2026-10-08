@@ -44,11 +44,12 @@
       <div class="bar">
         <input type="search" id="q" placeholder="Cari nama / ucapan…">
         <select id="statusFilter"><option value="">Semua</option><option value="hadir">Hadir</option><option value="ragu">Ragu</option><option value="tidak">Tidak hadir</option></select>
+        <select id="acaraFilter"><option value="">Semua acara</option><option value="umum">Umum (link biasa)</option><option value="d18">Hadir 18 Nov (Pertemuan Keluarga)</option><option value="d19">Hadir 19 Nov (Pernikahan)</option></select>
         <button class="btn" id="reload"><i class="fas fa-rotate"></i></button>
         <button class="btn primary" id="csv"><i class="fas fa-file-csv"></i> Ekspor CSV</button>
       </div>
       <div class="table-wrap"><table>
-        <thead><tr><th>Nama</th><th>Status</th><th>Tamu</th><th>Ucapan</th><th>Waktu</th><th></th></tr></thead>
+        <thead><tr><th>Nama</th><th>Status</th><th>Acara</th><th>Tamu</th><th>Ucapan</th><th>Waktu</th><th></th></tr></thead>
         <tbody id="rsvpBody"></tbody>
       </table></div>
       <p class="empty" id="rsvpEmpty" hidden>Belum ada data.</p>
