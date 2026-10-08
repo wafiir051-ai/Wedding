@@ -109,6 +109,11 @@ Pada: Pertemuan Keluarga
 🕛 Pukul: 09:00 - 13:00
 📍 Lokasi: Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang
 
+Pernikahan
+🗓 Tanggal: 19-11-2026
+🕛 Pukul: 08:00 - 12:00
+📍 Lokasi: Lingkungan Ciloa RT 02/RW 03, Desa Sukajaya, Kabupaten Sumedang Selatan
+
 Link undangan bisa diakses lengkap di:
 {link}
 
