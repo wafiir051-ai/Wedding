@@ -90,4 +90,33 @@ Note:
 Untuk mendapatkan hasil yang bagus, harap buka melalui Google Chrome terbaru dan matikan mode gelap dari HP.
 
 Wa'alaikumussalam 🙏`,
+  // Pesan untuk versi keluarga (tombol Pesan keluarga di panel admin).
+  shareMessageFamily:
+`Assalamualaikum.
+
+Yth. Bapak/Ibu/Saudara/i
+{nama}
+Di Tempat
+-----------
+Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i dan keluarga untuk menghadiri acara,
+===========
+The Wedding Of
+Agus & Sinta
+===========
+Pada: Pernikahan
+🗓 Tanggal: 18-11-2026
+🕛 Pukul: 08:00 - 12:00
+📍 Lokasi: Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang
+
+Link undangan bisa diakses lengkap di:
+{link}
+
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir di acara kami.
+Mohon maaf perihal undangan hanya dibagikan melalui pesan ini.
+Terima kasih banyak atas perhatiannya.
+
+Note:
+Untuk mendapatkan hasil yang bagus, harap buka melalui Google Chrome terbaru dan matikan mode gelap dari HP.
+
+Wa'alaikumussalam 🙏`,
 };

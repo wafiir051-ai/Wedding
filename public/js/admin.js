@@ -11,7 +11,7 @@
 
   function toast(m) { const t = $('#toast'); t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 2200); }
   function guard(e) { if (e.status === 401) { showLogin(); } else toast(e.message || 'Terjadi kesalahan'); }
-  const link = (g) => `${base}?to=${encodeURIComponent(g.name)}&c=${g.code}`;
+  const link = (g, fam) => `${base}?to=${encodeURIComponent(g.name)}&c=${g.code}${fam ? '&v=keluarga' : ''}`;
 
   function showLogin() { $('#appView').hidden = true; $('#loginView').hidden = false; }
   async function showApp() {
@@ -103,9 +103,12 @@
         const act = el('td'); const a = el('div', 'actions');
         const mk = (label, fn) => { const b = el('button', 'btn sm', label); b.onclick = fn; return b; };
         const msg = () => (window.SITE.shareMessage || '{link}').replace(/\{nama\}/g, g.name).replace(/\{link\}/g, link(g));
+        const msgF = () => (window.SITE.shareMessageFamily || window.SITE.shareMessage || '{link}').replace(/\{nama\}/g, g.name).replace(/\{link\}/g, link(g, true));
         const clip = async (t, ok) => { try { await navigator.clipboard.writeText(t); toast(ok); } catch { prompt('Salin manual:', t); } };
         a.append(mk('Salin link', () => clip(link(g), 'Link disalin')), mk('Salin pesan', () => clip(msg(), 'Pesan WhatsApp disalin')),
-          mk('WhatsApp', () => window.open('https://wa.me/?text=' + encodeURIComponent(msg()), '_blank', 'noopener')));
+          mk('WhatsApp', () => window.open('https://wa.me/?text=' + encodeURIComponent(msg()), '_blank', 'noopener')),
+          mk('Pesan keluarga', () => clip(msgF(), 'Pesan keluarga disalin')),
+          mk('WA keluarga', () => window.open('https://wa.me/?text=' + encodeURIComponent(msgF()), '_blank', 'noopener')));
         const l = el('td'); l.append(a);
         const d = el('button', 'btn sm danger', 'Hapus');
         d.onclick = async () => { if (!confirm(`Hapus tamu ${g.name}? (data RSVP-nya tetap tersimpan)`)) return; try { await SB.remove('guests?id=eq.' + g.id); loadGuests(); } catch (e) { guard(e); } };
