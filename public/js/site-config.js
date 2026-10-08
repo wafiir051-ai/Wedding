@@ -11,7 +11,7 @@ window.SITE = {
   groom: {
     nickname: 'Agus',
     fullName: 'Agus Kurniawan',        // TODO: isi nama lengkap + gelar
-    parents: '',               // contoh: 'Putra dari Bapak ... dan Ibu ...'
+    parents: 'Anak pertama dari Bapak Ujang Rahmat & Ibu Sri Rahayu (Ai)',
     instagram: '',             // contoh: 'https://instagram.com/username'
     whatsapp: '',              // contoh: '62812xxxxxxx'
     photo: 'img/groom.jpg',
@@ -19,7 +19,7 @@ window.SITE = {
   bride: {
     nickname: 'Sinta',
     fullName: 'Sinta Juliani',
-    parents: '',               // contoh: 'Putri dari Bapak ... dan Ibu ...'
+    parents: 'Anak pertama dari Bapak Haris & Ibu Nenah',
     instagram: '',
     whatsapp: '',
     photo: 'img/bride.jpg',
