@@ -92,6 +92,7 @@
       <li><b>Total tamu hadir</b>: jumlah orang yang datang, termasuk yang dibawa tamu.</li>
       <li><b>Masih ragu</b> dan <b>Tidak hadir</b>: jawaban lainnya.</li>
       <li><b>Ucapan</b>: jumlah ucapan dan doa yang masuk.</li>
+      <li><b>Tamu hadir 18 Nov</b> dan <b>Tamu hadir 19 Nov</b>: jumlah orang (bukan jumlah respon) yang akan hadir di Pertemuan Keluarga dan di Pernikahan.</li>
     </ul>
 
     <h3>2. Tab Konfirmasi &amp; Ucapan</h3>
@@ -100,8 +101,10 @@
       <li>Berisi jawaban RSVP dan ucapan dari tamu, tampil otomatis di tabel.</li>
       <li><b>Cari</b>: ketik nama atau isi ucapan untuk menyaring tabel.</li>
       <li><b>Filter</b> (&ldquo;Semua&rdquo;): tampilkan hanya yang Hadir, Ragu, atau Tidak hadir.</li>
+      <li><b>Filter acara</b> (&ldquo;Semua acara&rdquo;): tampilkan Umum (link biasa), yang hadir 18 Nov (Pertemuan Keluarga), atau yang hadir 19 Nov (Pernikahan).</li>
+      <li><b>Kolom Acara</b>: menunjukkan tamu dari link biasa (Umum) atau dari link keluarga beserta acara yang mereka pilih.</li>
       <li><b>Tombol panah berputar</b>: muat ulang data terbaru.</li>
-      <li><b>Ekspor CSV</b>: unduh data ke file yang bisa dibuka di Excel atau Google Sheets.</li>
+      <li><b>Ekspor CSV</b>: unduh data ke file yang bisa dibuka di Excel atau Google Sheets. Kolom Acara ikut diunduh.</li>
       <li>Tabel bisa digeser ke samping di HP. Kolom nama tetap terlihat.</li>
     </ul>
 
@@ -110,6 +113,7 @@
     <ul>
       <li>Tambahkan nama tamu supaya masing-masing punya <b>link undangan pribadi</b>, dan nama mereka tampil di undangan.</li>
       <li>Salin pesan atau link, lalu kirim lewat WhatsApp. Teks pesan bisa diubah di <code>shareMessage</code> pada <code>site-config.js</code>.</li>
+      <li>Untuk tamu keluarga, tambahkan <code>&amp;v=keluarga</code> di akhir link pribadinya. Pesan WhatsApp keluarga memuat dua acara (18 dan 19 November) dan sudah berisi tambahan itu otomatis dari tombol <b>Pesan keluarga</b>.</li>
       <li>Tamu yang tidak perlu ditampilkan atau sudah tidak relevan bisa disembunyikan atau dihapus lewat tombol di barisnya. Hapus tidak bisa dibatalkan.</li>
     </ul>
 
@@ -118,6 +122,14 @@
     <ul>
       <li><b>Tombol kunci</b>: ganti password admin.</li>
       <li><b>Keluar</b>: logout. Selalu logout kalau memakai HP atau komputer orang lain.</li>
+    </ul>
+
+    <h3>5. Versi keluarga dan acara</h3>
+    <ul>
+      <li><b>Link biasa</b>: hanya Pernikahan, Kamis 19 November 2026. Di tabel tertulis <b>Umum</b>.</li>
+      <li><b>Link keluarga</b> (<code>?v=keluarga</code>): cover dan hitung mundur ke Pertemuan Keluarga, Rabu 18 November 2026 (Parigi), plus kartu Pernikahan 19 November. Form RSVP memuat pilihan <b>Hadir di acara yang mana?</b>.</li>
+      <li>Nilai kolom Acara: <b>Keduanya (18 &amp; 19 Nov)</b>, <b>Pertemuan Keluarga (18 Nov)</b>, <b>Pernikahan (19 Nov)</b>, <b>Keluarga</b> (tamu keluarga yang menjawab Tidak hadir), atau <b>Umum</b>.</li>
+      <li>RSVP yang masuk sebelum fitur ini dihitung sebagai <b>Umum</b>, jadi ikut ke hitungan 19 Nov.</li>
     </ul>
 
     <h3>Tips</h3>
