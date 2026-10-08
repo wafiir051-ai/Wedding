@@ -40,7 +40,7 @@ window.SITE = {
   // Versi keluarga (link tamu memakai &v=keluarga). Hanya field yang tertulis di sini yang menimpa 'event'.
   eventFamily: {
     date: '2026-11-18',        // Rabu
-    start: '09:00',            // TODO: jam acara keluarga belum ditentukan, ganti kalau sudah pasti
+    start: '09:00',
     end: '13:00',
     venue: 'Lingkungan Parigi RT 03/RW 01',
     address: 'Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang',
