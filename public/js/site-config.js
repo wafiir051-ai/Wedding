@@ -39,6 +39,7 @@ window.SITE = {
   },
   // Versi keluarga (link tamu memakai &v=keluarga). Hanya field yang tertulis di sini yang menimpa 'event'.
   eventFamily: {
+    title: 'Pertemuan Keluarga',
     date: '2026-11-18',        // Rabu
     start: '09:00',
     end: '13:00',
@@ -103,7 +104,7 @@ Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i dan keluarga 
 The Wedding Of
 Agus & Sinta
 ===========
-Pada: Pernikahan
+Pada: Pertemuan Keluarga
 🗓 Tanggal: 18-11-2026
 🕛 Pukul: 09:00 - 13:00
 📍 Lokasi: Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang
