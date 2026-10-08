@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<body style="font-family:system-ui;max-width:520px;margin:2rem auto;padding:0 1rem">
+<h3>Cari awal reff</h3>
+<audio id="a" src="public/audio/pernikahan-kita.mp3" controls style="width:100%"></audio>
+<p>Titik mulai: <b id="t" style="font-size:2rem">110.0</b> detik (<span id="m"></span>)</p>
+<p>
+<button onclick="n(-5)">-5</button> <button onclick="n(-1)">-1</button> <button onclick="n(-.5)">-0.5</button> <button onclick="n(-.1)">-0.1</button>
+<button onclick="n(.1)">+0.1</button> <button onclick="n(.5)">+0.5</button> <button onclick="n(1)">+1</button> <button onclick="n(5)">+5</button>
+</p>
+<p><button onclick="go()" style="font-size:1.2rem">▶ Putar dari titik ini</button>
+<button onclick="mark()">📍 Pakai posisi player sekarang</button></p>
+<p>Putar, geser nilai sampai reff masuk tepat di awal, lalu kirim angka "Titik mulai" ke saya.</p>
+<script>
+let v=110;const a=document.getElementById('a');
+function show(){v=Math.max(0,Math.round(v*10)/10);t.textContent=v.toFixed(1);m.textContent=Math.floor(v/60)+':'+(v%60).toFixed(1).padStart(4,'0')}
+function n(d){v+=d;show();go()}
+function go(){a.currentTime=v;a.play()}
+function mark(){v=a.currentTime;show()}
+show();
+</script>
