@@ -40,8 +40,8 @@ window.SITE = {
   // Versi keluarga (link tamu memakai &v=keluarga). Hanya field yang tertulis di sini yang menimpa 'event'.
   eventFamily: {
     date: '2026-11-18',        // Rabu
-    start: '08:00',            // TODO: jam acara keluarga belum ditentukan, ganti kalau sudah pasti
-    end: '12:00',
+    start: '09:00',            // TODO: jam acara keluarga belum ditentukan, ganti kalau sudah pasti
+    end: '13:00',
     venue: 'Lingkungan Parigi RT 03/RW 01',
     address: 'Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang',
     mapQuery: 'Lingkungan Parigi RT 03 RW 01, Kelurahan Pasanggrahan Baru, Sumedang Selatan, Sumedang',
@@ -105,7 +105,7 @@ Agus & Sinta
 ===========
 Pada: Pernikahan
 🗓 Tanggal: 18-11-2026
-🕛 Pukul: 08:00 - 12:00
+🕛 Pukul: 09:00 - 13:00
 📍 Lokasi: Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang
 
 Link undangan bisa diakses lengkap di:
