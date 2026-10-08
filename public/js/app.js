@@ -20,7 +20,7 @@
 
   /* ---------- Isi konten dari konfigurasi ---------- */
   function fillSite() {
-    $('#coverDate').textContent = dateLabel;
+    $('#coverDate').textContent = fmtDate.format(new Date(`${S.event.date}T12:00:00${S.event.timezone}`));
     $('#pName1').textContent = S.groom.nickname;
     $('#pName2').textContent = S.bride.nickname;
     document.title = `The Wedding of ${S.groom.nickname} & ${S.bride.nickname}`;
