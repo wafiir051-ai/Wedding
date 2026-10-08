@@ -253,7 +253,7 @@
   const bgm = $('#bgm'); let wantPlay = false;
   /* Versi keluarga: font simple + lagu mulai dari reff (1:50), termasuk saat diulang */
   const isFamily = new URLSearchParams(location.search).get('v') === 'keluarga';
-  const MUSIC_START = Number(new URLSearchParams(location.search).get('t')) || 32;
+  const MUSIC_START = Number(new URLSearchParams(location.search).get('t')) || 110;
   document.documentElement.classList.add('v-keluarga');
   bgm.loop = false;
   const seekStart = () => { try { if (bgm.currentTime < MUSIC_START - 1) bgm.currentTime = MUSIC_START; } catch (e) {} };
