@@ -129,7 +129,7 @@
   function buildFx() {
     if (reduce) return;
     $$('.fx').forEach((box) => {
-      (box.dataset.fx || '').split(' ').forEach((type) => {
+      ((box.dataset.fx || '') + ' blooms corners').split(' ').forEach((type) => {
         const add = (cls, style) => { const i = document.createElement('i'); i.className = cls; Object.entries(style || {}).forEach(([k, v]) => i.style.setProperty(k, v)); box.append(i); return i; };
         if (type === 'orbs') for (let n = 0; n < 6; n++) { const s = rand(160, 340); add('orb' + (n % 3 === 0 ? ' rose' : ''), { left: rand(-5, 95) + '%', top: rand(-5, 90) + '%', width: s + 'px', height: s + 'px', '--dur': rand(12, 24) + 's', '--del': -rand(0, 20) + 's' }); }
         if (type === 'stars') for (let n = 0; n < 30; n++) add('star', { left: rand(0, 100) + '%', top: rand(0, 100) + '%', '--s': rand(2, 4.5) + 'px', '--dur': rand(2.5, 6) + 's', '--del': -rand(0, 6) + 's' });
@@ -137,6 +137,8 @@
         if (type === 'rays') add('rays');
         if (type === 'rings') for (let n = 0; n < 3; n++) add('ring', { '--del': -n * 3 + 's' });
         if (type === 'sweep') add('sweep');
+        if (type === 'blooms') for (let n = 0; n < 5; n++) add('bloom', { left: rand(0, 100) + '%', '--s': rand(22, 44) + 'px', '--dur': rand(14, 24) + 's', '--del': -rand(0, 20) + 's' });
+        if (type === 'corners') { add('bloom corner a'); add('bloom corner b'); }
       });
     });
     // latar global
