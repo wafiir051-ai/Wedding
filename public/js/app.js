@@ -382,6 +382,7 @@
     card.append(el('div', 'event-icon', '<i class="fas fa-users"></i>'), text('h3', '', f.title || 'Pertemuan Keluarga'), list, btns);
     $('#eventSection .event-card').before(card);
     $('#eventSection .sec-title').textContent = 'Rangkaian Acara';
+    $('#coverDate').textContent = when;
   }
 
   /* ---------- Awal mula bertemu ---------- */
