@@ -253,13 +253,13 @@
   const bgm = $('#bgm'); let wantPlay = false;
   /* Versi keluarga: font simple + lagu mulai dari reff (1:50), termasuk saat diulang */
   const isFamily = new URLSearchParams(location.search).get('v') === 'keluarga';
-  const MUSIC_START = isFamily ? 110 : 0;
-  if (isFamily) document.documentElement.classList.add('v-keluarga');
-  bgm.loop = !isFamily;
-  const seekStart = () => { try { if (isFamily && bgm.currentTime < MUSIC_START - 1) bgm.currentTime = MUSIC_START; } catch (e) {} };
+  const MUSIC_START = 110;
+  document.documentElement.classList.add('v-keluarga');
+  bgm.loop = false;
+  const seekStart = () => { try { if (bgm.currentTime < MUSIC_START - 1) bgm.currentTime = MUSIC_START; } catch (e) {} };
   bgm.addEventListener('loadedmetadata', seekStart);
   bgm.addEventListener('play', seekStart);
-  bgm.addEventListener('ended', () => { if (!isFamily) return; try { bgm.currentTime = MUSIC_START; } catch (e) {} bgm.play().catch(() => {}); });
+  bgm.addEventListener('ended', () => { try { bgm.currentTime = MUSIC_START; } catch (e) {} bgm.play().catch(() => {}); });
   function pickMusic() {
     const t = document.documentElement.dataset.tier;
     const src = S.music.src.replace(/\.mp3$/, t === 'low' ? '-low.mp3' : t === 'mid' ? '-mid.mp3' : '.mp3');
