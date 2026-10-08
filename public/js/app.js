@@ -355,7 +355,7 @@
       const btn = $('#submitBtn'), lbl = $('span', btn), old = lbl.textContent;
       btn.disabled = true; lbl.textContent = 'Mengirim…';
       try {
-        await SB.rpc('submit_rsvp', { p_code: guestCode || null, p_name: name, p_attendance: form.attendance.value, p_pax: Number($('#fPax').value) || 1, p_message: $('#fMsg').value.trim() });
+        await SB.rpc('submit_rsvp', { p_code: guestCode || null, p_name: name, p_attendance: form.attendance.value, p_pax: Number($('#fPax').value) || 1, p_message: $('#fMsg').value.trim(), p_versi: family ? 'keluarga' : 'umum', p_acara: family ? ((form.querySelector('input[name=acara]:checked') || {}).value || null) : null });
         note(guestCode ? 'Terima kasih! Konfirmasi Anda sudah tersimpan (bisa diubah kapan saja).' : 'Terima kasih! Konfirmasi dan ucapan Anda sudah terkirim 🤍');
         if (!guestCode) { $('#fMsg').value = ''; $('#msgLen').textContent = '0'; }
         loadMessages(true);
@@ -397,6 +397,12 @@
     card.append(el('div', 'event-icon', '<i class="fas fa-users"></i>'), text('h3', '', f.title || 'Pertemuan Keluarga'), list, btns);
     $('#eventSection .event-card').before(card);
     $('#eventSection .sec-title').textContent = 'Rangkaian Acara';
+    const fs = el('fieldset', 'field', '<legend>Hadir di acara yang mana?</legend>');
+    const ch = el('div', 'choices');
+    [['keduanya', 'Keduanya (18 & 19 Nov)', true], ['keluarga', 'Pertemuan Keluarga (18 Nov)'], ['pernikahan', 'Pernikahan (19 Nov)']].forEach(([v, t, on]) => {
+      ch.append(el('label', 'choice', `<input type="radio" name="acara" value="${v}"${on ? ' checked' : ''}><span>${t}</span>`));
+    });
+    fs.append(ch); $('#paxField').before(fs);
     $('#coverDate').textContent = when;
   }
 
