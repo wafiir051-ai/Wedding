@@ -11,7 +11,7 @@
 
   /* ---------- Tanggal ---------- */
   const family = new URLSearchParams(location.search).get('v') === 'keluarga';
-  const ev = family ? Object.assign({}, S.event, S.eventFamily) : S.event;
+  const ev = S.event;
   const startAt = new Date(`${ev.date}T${ev.start}:00${ev.timezone}`);
   const endAt = new Date(`${ev.date}T${ev.end}:00${ev.timezone}`);
   const fmtDate = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' });
@@ -367,6 +367,23 @@
     }));
   }
 
+  /* ---------- Versi keluarga: tambah kartu Pertemuan Keluarga ---------- */
+  function familyEvent() {
+    if (!family || !S.eventFamily) return;
+    const f = Object.assign({}, S.event, S.eventFamily);
+    const when = fmtDate.format(new Date(`${f.date}T${f.start}:00${f.timezone}`));
+    const time = `Pukul ${f.start.replace(':', '.')} - ${f.end.replace(':', '.')} ${f.timezoneLabel}`;
+    const row = (icon, t) => { const li = el('li', '', `<i class="fas ${icon}"></i>`); li.append(text('span', '', t)); return li; };
+    const list = el('ul', 'event-list');
+    list.append(row('fa-calendar-days', when), row('fa-clock', time), row('fa-location-dot', f.address));
+    const map = Object.assign(el('a', 'btn btn-gold', '<i class="fas fa-map-location-dot"></i> Buka Google Maps'), { href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(f.mapQuery)}`, target: '_blank', rel: 'noopener' });
+    const btns = el('div', 'btn-row'); btns.append(map);
+    const card = el('article', 'card event-card'); card.dataset.reveal = 'up';
+    card.append(el('div', 'event-icon', '<i class="fas fa-users"></i>'), text('h3', '', f.title || 'Pertemuan Keluarga'), list, btns);
+    $('#eventSection .event-card').before(card);
+    $('#eventSection .sec-title').textContent = 'Rangkaian Acara';
+  }
+
   /* ---------- Awal mula bertemu ---------- */
   function story() {
     const live = !/^(localhost|127\.)/.test(location.hostname);
@@ -385,7 +402,7 @@
   }
 
   /* ---------- Init ---------- */
-  fillSite(); story();
+  fillSite(); story(); familyEvent();
   $$('[data-letters]').forEach(splitLetters);
   $$('.sec-title').forEach(splitLetters);
   $$('[data-words]').forEach(splitWords);

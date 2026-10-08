@@ -613,3 +613,6 @@ img { -webkit-user-drag: none; }
 .story-date { display: block; font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-soft); opacity: .9; margin-bottom: .35rem; }
 .story-item h3 { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: clamp(1.9rem, 7.5vw, 2.4rem); line-height: 1.15; color: #fff; margin-bottom: .4rem; }
 .story-item p { font-weight: 300; line-height: 1.8; color: var(--light); font-size: clamp(.92rem, 3.5vw, 1.02rem); }
+
+/* Versi keluarga: dua kartu acara */
+#eventSection .event-card + .event-card { margin-top: 5.5rem; }
