@@ -17,6 +17,12 @@
   const fmtDate = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' });
   const dateLabel = fmtDate.format(startAt);
   const timeLabel = `Pukul ${ev.start.replace(':', '.')} - ${ev.end.replace(':', '.')} ${ev.timezoneLabel}`;
+  /* evx: acara utama untuk hitung mundur, kalender, peta, footer. Versi keluarga = Pertemuan Keluarga (18 Nov, Parigi) */
+  const evx = (family && S.eventFamily) ? Object.assign({}, S.event, S.eventFamily) : S.event;
+  const startAtX = new Date(`${evx.date}T${evx.start}:00${evx.timezone}`);
+  const endAtX = new Date(`${evx.date}T${evx.end}:00${evx.timezone}`);
+  const dateLabelX = fmtDate.format(startAtX);
+  const timeLabelX = `Pukul ${evx.start.replace(':', '.')} - ${evx.end.replace(':', '.')} ${evx.timezoneLabel}`;
 
   /* ---------- Isi konten dari konfigurasi ---------- */
   function fillSite() {
@@ -50,8 +56,8 @@
     if (ev.address.startsWith(ev.venue)) $('#evPlace').append(text('strong', '', ev.address)); else $('#evPlace').append(text('strong', '', ev.venue), document.createElement('br'), document.createTextNode(ev.address));
     const q = encodeURIComponent(ev.mapQuery);
     $('#evMap').href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-    $('#mapFrame').src = `https://www.google.com/maps?q=${q}&hl=id&z=15&output=embed`;
-    $('#footAddr').textContent = ev.address;
+    $('#mapFrame').src = `https://www.google.com/maps?q=${encodeURIComponent(evx.mapQuery)}&hl=id&z=15&output=embed`;
+    $('#footAddr').textContent = evx.address;
 
     if (S.gifts && S.gifts.length) {
       $('#giftSection').hidden = false; $('#navGift').hidden = false;
@@ -184,15 +190,15 @@
       if (prev[i] !== s) { ids[i].textContent = s; if (prev[i] !== undefined && !reduce) { ids[i].classList.remove('tick'); void ids[i].offsetWidth; ids[i].classList.add('tick'); } prev[i] = s; }
     });
     function tick() {
-      const now = Date.now(), left = startAt - now;
+      const now = Date.now(), left = startAtX - now;
       if (left <= 0) {
         set([0, 0, 0, 0]);
-        $('#countNote').textContent = now <= endAt ? 'Alhamdulillah, acara sedang berlangsung 🤍' : 'Alhamdulillah, acara telah terlaksana. Terima kasih atas doa dan restunya 🤍';
+        $('#countNote').textContent = now <= endAtX ? 'Alhamdulillah, acara sedang berlangsung 🤍' : 'Alhamdulillah, acara telah terlaksana. Terima kasih atas doa dan restunya 🤍';
         return;
       }
       const d = Math.floor(left / 864e5), h = Math.floor(left % 864e5 / 36e5), m = Math.floor(left % 36e5 / 6e4), s = Math.floor(left % 6e4 / 1e3);
       set([d, h, m, s]);
-      $('#countNote').textContent = `${dateLabel} • ${timeLabel}`;
+      $('#countNote').textContent = `${dateLabelX} • ${timeLabelX}`;
     }
     tick(); setInterval(tick, 1000);
   }
@@ -203,8 +209,8 @@
       const f = (d) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
       const esc = (t) => t.replace(/[\\;,]/g, '\\$&').replace(/\n/g, '\\n');
       const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Undangan Agus Sinta//ID', 'BEGIN:VEVENT',
-        'UID:' + f(startAt) + '@undangan-agus-sinta', 'DTSTAMP:' + f(new Date()), 'DTSTART:' + f(startAt), 'DTEND:' + f(endAt),
-        'SUMMARY:' + esc(`Pernikahan ${S.groom.nickname} & ${S.bride.nickname}`), 'LOCATION:' + esc(ev.address),
+        'UID:' + f(startAtX) + '@undangan-agus-sinta', 'DTSTAMP:' + f(new Date()), 'DTSTART:' + f(startAtX), 'DTEND:' + f(endAtX),
+        'SUMMARY:' + esc(`${evx.title} ${S.groom.nickname} & ${S.bride.nickname}`), 'LOCATION:' + esc(evx.address),
         'DESCRIPTION:' + esc('Mohon doa restu dan kehadirannya.'), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
       const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })), download: 'pernikahan-agus-sinta.ics' });
       document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
