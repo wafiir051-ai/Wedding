@@ -137,7 +137,7 @@
         if (type === 'rays') add('rays');
         if (type === 'rings') for (let n = 0; n < 3; n++) add('ring', { '--del': -n * 3 + 's' });
         if (type === 'sweep') add('sweep');
-        if (type === 'blooms') for (let n = 0; n < 5; n++) add('bloom', { left: rand(0, 100) + '%', '--s': rand(22, 44) + 'px', '--dur': rand(14, 24) + 's', '--del': -rand(0, 20) + 's' });
+        if (type === 'blooms') for (let n = 0; n < 10; n++) add('bloom' + (n >= 5 ? ' extra' : ''), { '--s': rand(22, 46) + 'px', '--dx': rand(-55, 55) + 'vw', '--dy': rand(-45, 45) + 'svh', '--rot': rand(-540, 540) + 'deg', '--dur': rand(3.5, 6) + 's', '--del': -rand(0, 6) + 's' });
         if (type === 'corners') { add('bloom corner a'); add('bloom corner b'); }
       });
     });

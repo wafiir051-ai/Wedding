@@ -640,8 +640,17 @@ html.v-keluarga .story-item h3 { font-family: 'Montserrat', system-ui, sans-seri
   90% { opacity: .9 }
   100% { transform: translate3d(-10px, 108svh, 0) rotate(380deg); opacity: 0 }
 }
-.fx .bloom.corner { width: clamp(100px, 28vw, 170px); height: clamp(100px, 28vw, 170px); opacity: .5; animation: bloomSway 7s ease-in-out infinite alternate; }
+.fx .bloom.corner { width: clamp(100px, 28vw, 170px); height: clamp(100px, 28vw, 170px); opacity: .5; animation: bloomSway 3.5s ease-in-out infinite alternate; }
 .fx .bloom.corner.a { top: -40px; left: -40px; }
-.fx .bloom.corner.b { top: auto; bottom: -40px; left: auto; right: -40px; animation-duration: 9s; animation-direction: alternate-reverse; }
+.fx .bloom.corner.b { top: auto; bottom: -40px; left: auto; right: -40px; animation-duration: 4.5s; animation-direction: alternate-reverse; }
 @keyframes bloomSway { from { transform: rotate(-12deg) scale(1) } to { transform: rotate(14deg) scale(1.08) } }
-.tier-mid .fx .bloom:not(.corner):nth-child(n+4) { display: none; }
+
+/* Bunga berhamburan dari tengah */
+.fx .bloom:not(.corner) { left: 50%; top: 50%; margin: calc(var(--s, 30px) / -2) 0 0 calc(var(--s, 30px) / -2);
+  animation: bloomBurst var(--dur, 5s) cubic-bezier(.2, .6, .35, 1) var(--del, 0s) infinite; }
+@keyframes bloomBurst {
+  0% { transform: translate3d(0, 0, 0) scale(.3) rotate(0); opacity: 0 }
+  12% { opacity: 1 }
+  100% { transform: translate3d(var(--dx, 30vw), var(--dy, 30svh), 0) scale(1.1) rotate(var(--rot, 360deg)); opacity: 0 }
+}
+.tier-mid .fx .bloom.extra { display: none; }
