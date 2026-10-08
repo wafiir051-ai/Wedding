@@ -245,6 +245,12 @@
 
   /* ---------- Musik & auto scroll ---------- */
   const bgm = $('#bgm'); let wantPlay = false;
+  /* Lagu mulai dari reff (1:50), termasuk saat diulang */
+  const MUSIC_START = 110;
+  const seekStart = () => { try { if (bgm.currentTime < MUSIC_START - 1) bgm.currentTime = MUSIC_START; } catch (e) {} };
+  bgm.addEventListener('loadedmetadata', seekStart);
+  bgm.addEventListener('play', seekStart);
+  bgm.addEventListener('ended', () => { try { bgm.currentTime = MUSIC_START; } catch (e) {} bgm.play().catch(() => {}); });
   function pickMusic() {
     const t = document.documentElement.dataset.tier;
     const src = S.music.src.replace(/\.mp3$/, t === 'low' ? '-low.mp3' : t === 'mid' ? '-mid.mp3' : '.mp3');
