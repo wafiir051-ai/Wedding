@@ -37,6 +37,15 @@ window.SITE = {
     // (mis. "-6.xxxx,107.xxxx") kalau sudah ada koordinatnya.
     mapQuery: 'Lingkungan Ciloa RT 02/RW 03, Desa Sukajaya, Sumedang Selatan, Sumedang',
   },
+  // Versi keluarga (link tamu memakai &v=keluarga). Hanya field yang tertulis di sini yang menimpa 'event'.
+  eventFamily: {
+    date: '2026-11-18',        // Rabu
+    start: '08:00',            // TODO: jam acara keluarga belum ditentukan, ganti kalau sudah pasti
+    end: '12:00',
+    venue: 'Lingkungan Parigi RT 03/RW 01',
+    address: 'Lingkungan Parigi RT 03/RW 01, Kelurahan Pasanggrahan Baru, Kecamatan Sumedang Selatan, Kabupaten Sumedang',
+    mapQuery: 'Lingkungan Parigi RT 03 RW 01, Kelurahan Pasanggrahan Baru, Sumedang Selatan, Sumedang',
+  },
   // Kirim hadiah / amplop digital. Kosong = section disembunyikan.
   // Contoh: { type: 'BRI', name: 'Nama Pemilik', number: '1234567890' }
   gifts: [

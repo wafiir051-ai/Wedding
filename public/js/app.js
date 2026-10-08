@@ -10,7 +10,8 @@
   const text = (tag, cls, t) => { const e = el(tag, cls); e.textContent = t; return e; };
 
   /* ---------- Tanggal ---------- */
-  const ev = S.event;
+  const family = new URLSearchParams(location.search).get('v') === 'keluarga';
+  const ev = family ? Object.assign({}, S.event, S.eventFamily) : S.event;
   const startAt = new Date(`${ev.date}T${ev.start}:00${ev.timezone}`);
   const endAt = new Date(`${ev.date}T${ev.end}:00${ev.timezone}`);
   const fmtDate = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' });
